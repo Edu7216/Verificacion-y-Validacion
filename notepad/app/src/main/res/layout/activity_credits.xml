@@ -23,6 +23,12 @@
         android:layout_height="107dp"
         android:text="@string/autor2" />
 
+    <TextView
+        android:id="@+id/credits_autor3"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:text="@string/autor3" />
+
     <Button
         android:id="@+id/credits_button"
         android:layout_width="match_parent"

@@ -13,11 +13,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Spinner;
+import java.util.Date;
 
 import es.unizar.eina.catlist.CatList;
 import es.unizar.eina.credits.Credits;
 import es.unizar.eina.send.SendAbstractionImpl;
-import es.unizar.eina.test.NoteTest;
 
 
 public class Notepadv3 extends AppCompatActivity {
@@ -27,12 +28,11 @@ public class Notepadv3 extends AppCompatActivity {
     private static final int ACTIVITY_CATEGORY = 2;
 
     private static final int CREDITS_ID = Menu.FIRST;
-    private static final int TEST_ID = Menu.FIRST + 1;
-    private static final int INSERT_ID = Menu.FIRST + 2;
-    private static final int DELETE_ID = Menu.FIRST + 3;
-    private static final int EDIT_ID = Menu.FIRST + 4;
-    private static final int EMAIL_ID = Menu.FIRST + 5;
-    private static final int SMS_ID = Menu.FIRST + 6;
+    private static final int INSERT_ID = Menu.FIRST + 1;
+    private static final int DELETE_ID = Menu.FIRST + 2;
+    private static final int EDIT_ID = Menu.FIRST + 3;
+    private static final int EMAIL_ID = Menu.FIRST + 4;
+    private static final int SMS_ID = Menu.FIRST + 5;
 
     private NotesDbAdapter mDbHelper;
     private ListView mList;
@@ -40,7 +40,10 @@ public class Notepadv3 extends AppCompatActivity {
     private boolean mByCategory;
     private TextView mCategory;
     private TextView mOrder;
+    private String dateType = "";
     private Button orderButton;
+    private Spinner spinner;
+    private Date currentDate;
 
 
     /** Called when the activity is first created. */
@@ -56,6 +59,12 @@ public class Notepadv3 extends AppCompatActivity {
 
         mOrder = (TextView) findViewById(R.id.notepad_order);
         mCategory = (TextView) findViewById(R.id.notepad_category);
+
+
+        currentDate = new Date();
+        currentDate.setYear(currentDate.getYear() + 1900);
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        currentDate = new Date(currentDate.getYear(), currentDate.getMonth(), currentDate.getDate());
 
         fillData();
 
@@ -95,11 +104,25 @@ public class Notepadv3 extends AppCompatActivity {
 
         });
 
+        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                dateType = parent.getItemAtPosition(position).toString();
+                fillData();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
     }
 
     private void fillData() {
         // Get all of the notes from the database and create the item list
-        Cursor notesCursor = mDbHelper.fetchAllNotes(mByCategory, mCategory.getText().toString());
+        Cursor notesCursor = mDbHelper.fetchAllNotes(mByCategory, mCategory.getText().toString(),
+                dateType, currentDate.getTime());
         startManagingCursor(notesCursor);
 
         // Create an array to specify the fields we want to display in the list
@@ -124,11 +147,6 @@ public class Notepadv3 extends AppCompatActivity {
         }
     }
 
-    private void test() {
-        Intent i = new Intent(this, NoteTest.class);
-        startActivity(i);
-    }
-
     private void credits() {
         Intent i = new Intent(this, Credits.class);
         startActivityForResult(i, ACTIVITY_CREATE);
@@ -138,7 +156,6 @@ public class Notepadv3 extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
-        menu.add(Menu.NONE, TEST_ID, Menu.NONE, R.string.note_test);
         menu.add(Menu.NONE, CREDITS_ID, Menu.NONE, R.string.credits);
         menu.add(Menu.NONE, INSERT_ID, Menu.NONE, R.string.menu_insert);
         return result;
@@ -147,9 +164,6 @@ public class Notepadv3 extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case TEST_ID:
-                test();
-                return true;
             case CREDITS_ID:
                 credits();
                 return true;

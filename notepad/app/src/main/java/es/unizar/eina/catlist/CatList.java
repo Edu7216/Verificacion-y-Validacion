@@ -14,18 +14,16 @@ import android.widget.SimpleCursorAdapter;
 
 import es.unizar.eina.notepadv3.NotesDbAdapter;
 import es.unizar.eina.notepadv3.R;
-import es.unizar.eina.test.CategoryTest;
 
 public class CatList extends AppCompatActivity {
 
     private static final int ACTIVITY_CREATE = 0;
     private static final int ACTIVITY_EDIT = 1;
 
-    private static final int TEST_ID = Menu.FIRST;
-    private static final int INSERT_ID = Menu.FIRST + 1;
-    private static final int SELECT_ID = Menu.FIRST + 2;
-    private static final int DELETE_ID = Menu.FIRST + 3;
-    private static final int EDIT_ID = Menu.FIRST + 4;
+    private static final int INSERT_ID = Menu.FIRST;
+    private static final int SELECT_ID = Menu.FIRST + 1;
+    private static final int DELETE_ID = Menu.FIRST + 2;
+    private static final int EDIT_ID = Menu.FIRST + 3;
 
     private CatDbAdapter mDbHelper;
     private NotesDbAdapter mNotesDbHelper;
@@ -72,15 +70,10 @@ public class CatList extends AppCompatActivity {
         mList.setAdapter(cats);
     }
 
-    private void test() {
-        Intent i = new Intent(this, CategoryTest.class);
-        startActivity(i);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         boolean result = super.onCreateOptionsMenu(menu);
-        menu.add(Menu.NONE, TEST_ID, Menu.NONE, R.string.cat_test);
         menu.add(Menu.NONE, INSERT_ID, Menu.NONE, R.string.menu_insert);
         return result;
     }
@@ -88,9 +81,6 @@ public class CatList extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case TEST_ID:
-                test();
-                return true;
             case INSERT_ID:
                 createCategory();
                 return true;

@@ -23,6 +23,8 @@ public class NotesDbAdapter {
     public static final String KEY_TITLE = "title";
     public static final String KEY_BODY = "body";
     public static final String KEY_CATEGORY = "category";
+    public static final String KEY_STARTDATE = "startDate";
+    public static final String KEY_ENDDATE = "endDate";
     public static final String KEY_ROWID = "_id";
 
     private static final String TAG = "NotesDbAdapter";
@@ -34,7 +36,8 @@ public class NotesDbAdapter {
      */
     private static final String DATABASE_CREATE =
             "create table notes (_id integer primary key autoincrement, "
-                    + "title text not null, body text not null, category text not null);";
+                    + "title text not null, body text not null, category text not null, "
+                    + "startDate integer, endDate integer);";
 
     private static final String DATABASE_NAME = "data";
     private static final String DATABASE_TABLE = "notes";
@@ -100,16 +103,15 @@ public class NotesDbAdapter {
      *
      * @param title the title of the note
      * @param body the body of the note
-     * @param category the category of the note
      * @return rowId or -1 if failed
      */
-    public long createNote(String title, String body, String category) {
-        if (title.isEmpty()) return -1;
-
+    public long createNote(String title, String body, String category, long startDate, long endDate) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_TITLE, title);
         initialValues.put(KEY_BODY, body);
         initialValues.put(KEY_CATEGORY, category);
+        initialValues.put(KEY_STARTDATE, startDate);
+        initialValues.put(KEY_ENDDATE, endDate);
 
         return mDb.insert(DATABASE_TABLE, null, initialValues);
     }
@@ -143,21 +145,33 @@ public class NotesDbAdapter {
      * @param Category category of notes to retrieve, null for all notes
      * @return Cursor over all notes
      */
-    public Cursor fetchAllNotes(boolean byCategory, String Category) {
+    public Cursor fetchAllNotes(boolean byCategory, String Category, String typeDate,
+                                long currentDate) {
+        String where;
+        if (typeDate.equals("Planned Notes")){
+            where = " " + KEY_STARTDATE + " > " + currentDate + " ";
+        } else if (typeDate.equals("Active Notes")){
+            where = " " + KEY_STARTDATE + " < " + currentDate
+                    + " AND " + KEY_ENDDATE + " > " + currentDate + " ";
+        } else if (typeDate.equals("Expired Notes")){
+            where  = " " + KEY_ENDDATE + " < " + currentDate + " ";
+        } else {
+            where = " 1 = 1 ";
+        }
         if (Category.isEmpty()) {
             if (byCategory) {
                 return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TITLE,
-                                KEY_BODY, KEY_CATEGORY}, null, null, null,
-                        null, KEY_CATEGORY);
+                                KEY_BODY, KEY_CATEGORY}, where, null,
+                        null, null, KEY_CATEGORY);
             }
             else {
                 return mDb.query(DATABASE_TABLE, new String[]{KEY_ROWID, KEY_TITLE,
-                                KEY_BODY, KEY_CATEGORY}, null, null, null,
-                        null, KEY_TITLE);
+                                KEY_BODY, KEY_CATEGORY}, where, null,
+                        null, null, KEY_TITLE);
             }
         }
         else {
-            String where = KEY_CATEGORY + " = '" + Category + "'";
+            where = where + " AND " + KEY_CATEGORY + " = '" + Category + "'";
             return mDb.query(DATABASE_TABLE, new String[]{KEY_ROWID, KEY_TITLE,
                             KEY_BODY, KEY_CATEGORY}, where, null, null,
                     null, KEY_TITLE);
@@ -176,8 +190,9 @@ public class NotesDbAdapter {
         Cursor mCursor =
 
                 mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                                KEY_TITLE, KEY_BODY, KEY_CATEGORY}, KEY_ROWID + "=" + rowId,
-                        null, null, null, null, null);
+                                KEY_TITLE, KEY_BODY, KEY_CATEGORY, KEY_STARTDATE, KEY_ENDDATE},
+                        KEY_ROWID + "=" + rowId, null, null,
+                        null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
@@ -195,13 +210,13 @@ public class NotesDbAdapter {
      * @param body value to set note body to
      * @return true if the note was successfully updated, false otherwise
      */
-    public boolean updateNote(long rowId, String title, String body, String category) {
-        if (title.isEmpty()) return false;
-
+    public boolean updateNote(long rowId, String title, String body, String category, long startDate, long endDate) {
         ContentValues args = new ContentValues();
         args.put(KEY_TITLE, title);
         args.put(KEY_BODY, body);
         args.put(KEY_CATEGORY, category);
+        args.put(KEY_STARTDATE, startDate);
+        args.put(KEY_ENDDATE, endDate);
 
         return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
     }

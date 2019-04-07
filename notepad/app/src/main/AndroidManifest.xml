@@ -33,9 +33,11 @@
         <activity
             android:name="es.unizar.eina.catlist.CatEdit"
             android:label="@string/title_activity_cat_edit" />
-        <activity android:name="es.unizar.eina.credits.Credits" />
-        <activity android:name="es.unizar.eina.test.NoteTest" />
-        <activity android:name="es.unizar.eina.test.CategoryTest"></activity>
+        <activity android:name="es.unizar.eina.credits.Credits"></activity>
+        <activity
+            android:name="es.unizar.eina.notepadv3.NoteDatePicker"
+            android:label="@string/title_activity_date_picker"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

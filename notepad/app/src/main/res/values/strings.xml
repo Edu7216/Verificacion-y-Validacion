@@ -9,6 +9,9 @@
     <string name="body">Body</string>
     <string name="confirm">Confirm</string>
     <string name="edit_note">Edit Note</string>
+    <string name="startDate">Start Date</string>
+    <string name="endDate">End Date</string>
+    <string name="title_activity_date_picker">Date Picker</string>
     <string name="title_activity_note_edit">EditNote</string>
     <string name="id">ID</string>
     <string name="send_email">Send email</string>
@@ -24,12 +27,20 @@
     <string name="menu_cat_delete">Delete Category</string>
     <string name="menu_cat_edit">Edit Category</string>
     <string name="order">Order by</string>
-    <string name="autor1">Andres Gavin Murillo</string>
+    <string name="date_type">Date type</string>
+    <string name="date_prompt">Select</string>
+    <string name="autor1">Gonzalo Berné Melguizo</string>
     <string name="autor2">Eduardo Gimeno Soriano</string>
+    <string name="autor3">Jorge Rambla González</string>
     <string name="credits">Credits</string>
     <string name="authors">Authors</string>
-    <string name="note_test">Notes tests</string>
-    <string name="cat_test">Categories tests</string>
+
+    <string-array name="date_references">
+        <item>All</item>
+        <item>Planned Notes</item>
+        <item>Active Notes</item>
+        <item>Expired Notes</item>
+    </string-array>
 
     <!-- Strings related to Settings -->
 
