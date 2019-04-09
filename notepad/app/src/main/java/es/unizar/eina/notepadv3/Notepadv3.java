@@ -45,10 +45,6 @@ public class Notepadv3 extends AppCompatActivity {
     private Spinner spinner;
     private Date currentDate;
 
-    public NotesDbAdapter getmDbHelper() {
-        return this.mDbHelper;
-    }
-
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -259,6 +255,10 @@ public class Notepadv3 extends AppCompatActivity {
             }
         }
         fillData();
+    }
+
+    public NotesDbAdapter getmDbHelper() {
+        return this.mDbHelper;
     }
 
 }
