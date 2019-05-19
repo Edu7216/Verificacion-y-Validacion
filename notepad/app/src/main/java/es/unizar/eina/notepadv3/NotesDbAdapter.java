@@ -20,15 +20,14 @@ import android.util.Log;
  */
 public class NotesDbAdapter {
 
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_BODY = "body";
-    public static final String KEY_CATEGORY = "category";
-    public static final String KEY_STARTDATE = "startDate";
-    public static final String KEY_ENDDATE = "endDate";
-    public static final String KEY_ROWID = "_id";
+    static final String KEY_TITLE = "title";
+    static final String KEY_BODY = "body";
+    static final String KEY_CATEGORY = "category";
+    static final String KEY_STARTDATE = "startDate";
+    static final String KEY_ENDDATE = "endDate";
+    static final String KEY_ROWID = "_id";
 
     private static final String TAG = "NotesDbAdapter";
-    private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
 
     /**
@@ -81,19 +80,16 @@ public class NotesDbAdapter {
      * instance of the database. If it cannot be created, throw an exception to
      * signal the failure
      *
-     * @return this (self reference, allowing this to be chained in an
-     *         initialization call)
      * @throws SQLException if the database could be neither opened or created
      */
-    public NotesDbAdapter open() throws SQLException {
-        mDbHelper = new DatabaseHelper(mCtx);
+    public void open() throws SQLException {
+        DatabaseHelper mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getWritableDatabase();
-        return this;
     }
 
-    public void close() {
-        mDbHelper.close();
-    }
+    //public void close() {
+    //    mDbHelper.close();
+    //}
 
 
     /**
@@ -105,7 +101,7 @@ public class NotesDbAdapter {
      * @param body the body of the note
      * @return rowId or -1 if failed
      */
-    public long createNote(String title, String body, String category, long startDate, long endDate) {
+    long createNote(String title, String body, String category, long startDate, long endDate) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_TITLE, title);
         initialValues.put(KEY_BODY, body);
@@ -120,11 +116,9 @@ public class NotesDbAdapter {
      * Delete the note with the given rowId
      *
      * @param rowId id of note to delete
-     * @return true if deleted, false otherwise
      */
-    public boolean deleteNote(long rowId) {
-
-        return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+    void deleteNote(long rowId) {
+        mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null);
     }
 
     /**
@@ -145,18 +139,23 @@ public class NotesDbAdapter {
      * @param Category category of notes to retrieve, null for all notes
      * @return Cursor over all notes
      */
-    public Cursor fetchAllNotes(boolean byCategory, String Category, String typeDate,
-                                long currentDate) {
+    Cursor fetchAllNotes(boolean byCategory, String Category, String typeDate,
+                         long currentDate) {
         String where;
-        if (typeDate.equals("Planned Notes")){
-            where = " " + KEY_STARTDATE + " > " + currentDate + " ";
-        } else if (typeDate.equals("Active Notes")){
-            where = " " + KEY_STARTDATE + " < " + currentDate
-                    + " AND " + KEY_ENDDATE + " > " + currentDate + " ";
-        } else if (typeDate.equals("Expired Notes")){
-            where  = " " + KEY_ENDDATE + " < " + currentDate + " ";
-        } else {
-            where = " 1 = 1 ";
+        switch (typeDate) {
+            case "Planned Notes":
+                where = " " + KEY_STARTDATE + " > " + currentDate + " ";
+                break;
+            case "Active Notes":
+                where = " " + KEY_STARTDATE + " < " + currentDate
+                        + " AND " + KEY_ENDDATE + " > " + currentDate + " ";
+                break;
+            case "Expired Notes":
+                where = " " + KEY_ENDDATE + " < " + currentDate + " ";
+                break;
+            default:
+                where = " 1 = 1 ";
+                break;
         }
         if (Category.isEmpty()) {
             if (byCategory) {
@@ -185,7 +184,7 @@ public class NotesDbAdapter {
      * @return Cursor positioned to matching note, if found
      * @throws SQLException if note could not be found/retrieved
      */
-    public Cursor fetchNote(long rowId) throws SQLException {
+    Cursor fetchNote(long rowId) throws SQLException {
 
         Cursor mCursor =
 
@@ -208,9 +207,8 @@ public class NotesDbAdapter {
      * @param rowId id of note to update
      * @param title value to set note title to
      * @param body value to set note body to
-     * @return true if the note was successfully updated, false otherwise
      */
-    public boolean updateNote(long rowId, String title, String body, String category, long startDate, long endDate) {
+    void updateNote(long rowId, String title, String body, String category, long startDate, long endDate) {
         ContentValues args = new ContentValues();
         args.put(KEY_TITLE, title);
         args.put(KEY_BODY, body);
@@ -218,7 +216,7 @@ public class NotesDbAdapter {
         args.put(KEY_STARTDATE, startDate);
         args.put(KEY_ENDDATE, endDate);
 
-        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null);
     }
 
     /**
