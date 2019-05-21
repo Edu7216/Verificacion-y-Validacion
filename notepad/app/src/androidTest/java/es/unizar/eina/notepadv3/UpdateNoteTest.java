@@ -11,14 +11,15 @@ import java.util.Date;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
 public class UpdateNoteTest {
     @Rule
     public ActivityTestRule<Notepadv3> activityRule = new ActivityTestRule<>(Notepadv3.class);
 
-    NotesDbAdapter mDbHelper_test;
+    private NotesDbAdapter mDbHelper_test;
     private long rowid;
 
     @Before
@@ -30,13 +31,13 @@ public class UpdateNoteTest {
     public void test_UpdateNoteValida() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
         boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
-        assertEquals(true, upd);
+        assertTrue(upd);
     }
 
     @Test
     public void test_UpdateNoteInvalida1() {
         boolean upd = mDbHelper_test.updateNote(0, "tituloU", "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
-        assertEquals(false, upd);
+        assertFalse(upd);
     }
 
     @Test(expected = android.database.sqlite.SQLiteConstraintException.class)

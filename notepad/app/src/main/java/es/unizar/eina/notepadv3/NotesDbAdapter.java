@@ -23,11 +23,12 @@ public class NotesDbAdapter {
     static final String KEY_TITLE = "title";
     static final String KEY_BODY = "body";
     static final String KEY_CATEGORY = "category";
+    static final String KEY_ROWID = "_id";
     static final String KEY_STARTDATE = "startDate";
     static final String KEY_ENDDATE = "endDate";
-    static final String KEY_ROWID = "_id";
 
     private static final String TAG = "NotesDbAdapter";
+    private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
 
     /**
@@ -80,17 +81,19 @@ public class NotesDbAdapter {
      * instance of the database. If it cannot be created, throw an exception to
      * signal the failure
      *
+     * @return this (self reference, allowing this to be chained in an
+     *         initialization call)
      * @throws SQLException if the database could be neither opened or created
      */
-    public void open() throws SQLException {
-        DatabaseHelper mDbHelper = new DatabaseHelper(mCtx);
+    public NotesDbAdapter open() throws SQLException {
+        mDbHelper = new DatabaseHelper(mCtx);
         mDb = mDbHelper.getWritableDatabase();
+        return this;
     }
 
-    //public void close() {
-    //    mDbHelper.close();
-    //}
-
+    public void close() {
+        mDbHelper.close();
+    }
 
     /**
      * Create a new note using the title and body provided. If the note is
@@ -116,9 +119,10 @@ public class NotesDbAdapter {
      * Delete the note with the given rowId
      *
      * @param rowId id of note to delete
+     * @return true if deleted, false otherwise
      */
-    void deleteNote(long rowId) {
-        mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null);
+    boolean deleteNote(long rowId) {
+        return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
     }
 
     /**
@@ -207,8 +211,9 @@ public class NotesDbAdapter {
      * @param rowId id of note to update
      * @param title value to set note title to
      * @param body value to set note body to
+     * @return true if updated, false otherwise
      */
-    void updateNote(long rowId, String title, String body, String category, long startDate, long endDate) {
+    boolean updateNote(long rowId, String title, String body, String category, long startDate, long endDate) {
         ContentValues args = new ContentValues();
         args.put(KEY_TITLE, title);
         args.put(KEY_BODY, body);
@@ -216,7 +221,7 @@ public class NotesDbAdapter {
         args.put(KEY_STARTDATE, startDate);
         args.put(KEY_ENDDATE, endDate);
 
-        mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null);
+        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
     }
 
     /**
@@ -230,42 +235,46 @@ public class NotesDbAdapter {
                 "' WHERE " + KEY_CATEGORY + " = '"+ old_category + "'");
     }
 
-    public int getNotesNumber() {
+    /**
+     * Operaciones para testing
+     *
+     */
+    int getNotesNumber() {
         Cursor aux = this.fetchAllNotes(false,"","ALL",0);
         int numNotas = aux.getCount();
         aux.close();
         return numNotas;
     }
 
-    public String getTitle(long rowId) {
+    String getTitle(long rowId) {
         Cursor aux = this.fetchNote(rowId);
         String titulo_aux = aux.getString(aux.getColumnIndex("title"));
         aux.close();
         return titulo_aux;
     }
 
-    public String getBody(long rowId) {
+    String getBody(long rowId) {
         Cursor aux = this.fetchNote(rowId);
         String cuerpo_aux = aux.getString(aux.getColumnIndex("body"));
         aux.close();
         return cuerpo_aux;
     }
 
-    public String getCategory(long rowId) {
+    String getCategory(long rowId) {
         Cursor aux = this.fetchNote(rowId);
         String cat_aux = aux.getString(aux.getColumnIndex("category"));
         aux.close();
         return cat_aux;
     }
 
-    public long getStartDate(long rowId) {
+    long getStartDate(long rowId) {
         Cursor aux = this.fetchNote(rowId);
         long fAct_aux = aux.getLong(aux.getColumnIndex("startDate"));
         aux.close();
         return fAct_aux;
     }
 
-    public long getEndDate(long rowId) {
+    long getEndDate(long rowId) {
         Cursor aux = this.fetchNote(rowId);
         long fCad_aux = aux.getLong(aux.getColumnIndex("endDate"));
         aux.close();
