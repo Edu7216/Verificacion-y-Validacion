@@ -229,4 +229,46 @@ public class NotesDbAdapter {
         mDb.execSQL("UPDATE " + DATABASE_TABLE + " SET " + KEY_CATEGORY + " = '" + new_category +
                 "' WHERE " + KEY_CATEGORY + " = '"+ old_category + "'");
     }
+
+    public int getNotesNumber() {
+        Cursor aux = this.fetchAllNotes(false,"","ALL",0);
+        int numNotas = aux.getCount();
+        aux.close();
+        return numNotas;
+    }
+
+    public String getTitle(long rowId) {
+        Cursor aux = this.fetchNote(rowId);
+        String titulo_aux = aux.getString(aux.getColumnIndex("title"));
+        aux.close();
+        return titulo_aux;
+    }
+
+    public String getBody(long rowId) {
+        Cursor aux = this.fetchNote(rowId);
+        String cuerpo_aux = aux.getString(aux.getColumnIndex("body"));
+        aux.close();
+        return cuerpo_aux;
+    }
+
+    public String getCategory(long rowId) {
+        Cursor aux = this.fetchNote(rowId);
+        String cat_aux = aux.getString(aux.getColumnIndex("category"));
+        aux.close();
+        return cat_aux;
+    }
+
+    public long getStartDate(long rowId) {
+        Cursor aux = this.fetchNote(rowId);
+        long fAct_aux = aux.getLong(aux.getColumnIndex("startDate"));
+        aux.close();
+        return fAct_aux;
+    }
+
+    public long getEndDate(long rowId) {
+        Cursor aux = this.fetchNote(rowId);
+        long fCad_aux = aux.getLong(aux.getColumnIndex("endDate"));
+        aux.close();
+        return fCad_aux;
+    }
 }
