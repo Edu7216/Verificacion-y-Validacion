@@ -221,10 +221,7 @@ public class NoteEdit extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (intent.getStringExtra("info").equals("startDate")) {
                     Date d = (Date) intent.getSerializableExtra("startDate");
-                    if(d.compareTo(currentDate) < 0) {
-                        error.setText("Start date can't be before the current date");
-                        startDate = currentDate;
-                    } else if (d.compareTo(endDate) > 0){
+                    if (d.compareTo(endDate) > 0){
                         error.setText("Start date can't be after the end date");
                         startDate = currentDate;
                     } else {
