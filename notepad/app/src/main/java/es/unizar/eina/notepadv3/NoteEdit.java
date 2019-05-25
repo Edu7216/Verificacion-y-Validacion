@@ -1,5 +1,6 @@
 package es.unizar.eina.notepadv3;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -138,6 +139,7 @@ public class NoteEdit extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     private void populateFields() {
         if (mRowId != null) {
             Cursor note = mDbHelper.fetchNote(mRowId);
@@ -208,6 +210,7 @@ public class NoteEdit extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);

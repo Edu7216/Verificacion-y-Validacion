@@ -1,5 +1,6 @@
 package es.unizar.eina.catlist;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -57,6 +58,7 @@ public class CatEdit extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     private void populateFields() {
         if (mRowId != null) {
             Cursor cat = mDbHelper.fetchCategory(mRowId);

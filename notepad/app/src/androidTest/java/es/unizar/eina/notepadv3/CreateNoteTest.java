@@ -51,6 +51,12 @@ public class CreateNoteTest {
         assertEquals(-1, rowid);
     }
 
+    @Test
+    public void test_CreateNoteInvalida4() {
+        rowid = mDbHelper_test.createNote("", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        assertEquals(-1, rowid);
+    }
+
     @After
     public void tearDown() {
         mDbHelper_test.deleteNote(rowid);
