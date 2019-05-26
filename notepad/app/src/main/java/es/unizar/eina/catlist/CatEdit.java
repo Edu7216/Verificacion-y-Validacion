@@ -100,6 +100,17 @@ public class CatEdit extends AppCompatActivity {
             name = "Category";
         }
 
+        int counter = 0;
+        char[] nameArray = name.toCharArray();
+        for (int i = 0; i < nameArray.length; i++){
+            if(Character.isLetter(nameArray[i]) || Character.isDigit(nameArray[i])){
+                counter++;
+            }
+        }
+        if(counter == 0){
+            name = "Note";
+        }
+
         if (mRowId == null) {
             long id = mDbHelper.createCategory(name);
             if (id > 0) {

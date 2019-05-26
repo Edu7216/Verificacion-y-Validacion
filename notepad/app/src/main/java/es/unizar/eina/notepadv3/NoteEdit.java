@@ -200,6 +200,17 @@ public class NoteEdit extends AppCompatActivity {
             title = "Note";
         }
 
+        int counter = 0;
+        char[] titleArray = title.toCharArray();
+        for (int i = 0; i < titleArray.length; i++){
+            if(Character.isLetter(titleArray[i]) || Character.isDigit(titleArray[i])){
+                counter++;
+            }
+        }
+        if(counter == 0){
+            title = "Note";
+        }
+
         if (mRowId == null) {
             long id = mDbHelper.createNote(title, body, category, startDate.getTime(), endDate.getTime());
             if (id > 0) {
