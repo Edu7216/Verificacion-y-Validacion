@@ -57,6 +57,36 @@ public class CreateNoteTest {
         assertEquals(-1, rowid);
     }
 
+    @Test
+    public void test_CreateNoteInvalida5() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "", new Date().getTime(), new Date().getTime());
+        assertEquals(-1, rowid);
+    }
+
+    @Test
+    public void test_CreateNoteInvalida6() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", 0, new Date().getTime());
+        assertEquals(-1, rowid);
+    }
+
+    @Test
+    public void test_CreateNoteInvalida7() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", -10, new Date().getTime());
+        assertEquals(-1, rowid);
+    }
+
+    @Test
+    public void test_CreateNoteInvalida8() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "", new Date().getTime(), 0);
+        assertEquals(-1, rowid);
+    }
+
+    @Test
+    public void test_CreateNoteInvalida9() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "", new Date().getTime(), -10);
+        assertEquals(-1, rowid);
+    }
+
     @After
     public void tearDown() {
         mDbHelper_test.deleteNote(rowid);

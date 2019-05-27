@@ -12,7 +12,7 @@ import androidx.test.rule.ActivityTestRule;
 import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
-public class CreateCategoryTest {
+public class DeleteCategoryTest {
     @Rule
     public ActivityTestRule<CatList> activityRule = new ActivityTestRule<>(CatList.class);
 
@@ -25,22 +25,22 @@ public class CreateCategoryTest {
     }
 
     @Test
-    public void test_CreateCategoryValida() {
-        int numCategorias = mDbHelper_test.getCategoriesNumber();
+    public void test_DeleteCategoryValida() {
         rowid = mDbHelper_test.createCategory("titulo");
-        assertEquals(numCategorias + 1, mDbHelper_test.getCategoriesNumber());
+        boolean res = mDbHelper_test.deleteCategory(rowid);
+        assertTrue(res);
     }
 
     @Test
-    public void test_CreateCategoryInvalida1() {
-        rowid = mDbHelper_test.createCategory(null);
-        assertEquals(-1, rowid);
+    public void test_DeleteCategoryInvalida1() {
+        boolean res = mDbHelper_test.deleteCategory(0);
+        assertFalse(res);
     }
 
     @Test
-    public void test_CreateCategoryInvalida2() {
-        rowid = mDbHelper_test.createCategory("");
-        assertEquals(-1, rowid);
+    public void test_DeleteCategoryInvalida2() {
+        boolean res = mDbHelper_test.deleteCategory(-5);
+        assertFalse(res);
     }
 
     @After

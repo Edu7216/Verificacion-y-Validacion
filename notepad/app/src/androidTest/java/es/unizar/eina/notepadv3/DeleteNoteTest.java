@@ -35,8 +35,14 @@ public class DeleteNoteTest {
     }
 
     @Test
-    public void test_DeleteNoteInvalida() {
+    public void test_DeleteNoteInvalida1() {
         boolean del = mDbHelper_test.deleteNote(0);
+        assertFalse(del);
+    }
+
+    @Test
+    public void test_DeleteNoteInvalida2() {
+        boolean del = mDbHelper_test.deleteNote(-5);
         assertFalse(del);
     }
 

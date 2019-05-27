@@ -58,6 +58,54 @@ public class UpdateNoteTest {
         mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", null, new Date().getTime(), new Date().getTime());
     }
 
+    @Test
+    public void test_UpdateNoteInvalida5() {
+        boolean upd = mDbHelper_test.updateNote(-8, "tituloU", "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
+        assertFalse(upd);
+    }
+
+    @Test
+    public void test_UpdateNoteInvalida6() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "", "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
+        assertFalse(upd);
+    }
+
+    @Test
+    public void test_UpdateNoteInvalida7() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "", new Date().getTime(), new Date().getTime());
+        assertFalse(upd);
+    }
+
+    @Test
+    public void test_UpdateNoteInvalida8() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", 0, new Date().getTime());
+        assertFalse(upd);
+    }
+
+    @Test
+    public void test_UpdateNoteInvalida9() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", -8, new Date().getTime());
+        assertFalse(upd);
+    }
+
+    @Test
+    public void test_UpdateNoteInvalida10() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", new Date().getTime(), 0);
+        assertFalse(upd);
+    }
+
+    @Test
+    public void test_UpdateNoteInvalida11() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", new Date().getTime(), -8);
+        assertFalse(upd);
+    }
+
     @After
     public void tearDown() {
         mDbHelper_test.deleteNote(rowid);
