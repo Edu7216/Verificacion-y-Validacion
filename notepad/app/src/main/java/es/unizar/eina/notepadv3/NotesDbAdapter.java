@@ -67,6 +67,28 @@ public class NotesDbAdapter {
     }
 
     /**
+     * Comprueba los valores de los parametros para ver si son válidos o no
+     *
+     * @param title titulo
+     * @param body cuerpo
+     * @param category categoria
+     * @param startDate fecha de activacion
+     * @param endDate fecha de caducidad
+     * @param op crear/actualizar
+     * @return true si son correctos, false en caso contrario
+     */
+    private boolean parametrosValidos(String title, String body, String category, long startDate, long endDate, String op) {
+        switch (op) {
+            case "CN":
+                return title != null && category != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate;
+            case "UN":
+                return title != null && category != null && body != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate;
+            default:
+                return false;
+        }
+    }
+
+    /**
      * Constructor - takes the context to allow the database to be
      * opened/created
      *
@@ -105,7 +127,7 @@ public class NotesDbAdapter {
      * @return rowId or -1 if failed
      */
     long createNote(String title, String body, String category, long startDate, long endDate) {
-        if (title != null && category != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate) {
+        if (parametrosValidos(title,body,category,startDate,endDate,"CN")) {
             ContentValues initialValues = new ContentValues();
             initialValues.put(KEY_TITLE, title);
             initialValues.put(KEY_BODY, body);
@@ -219,7 +241,7 @@ public class NotesDbAdapter {
      * @return true if updated, false otherwise
      */
     boolean updateNote(long rowId, String title, String body, String category, long startDate, long endDate) {
-        if (title != null && category != null && body != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate) {
+        if (parametrosValidos(title,body,category,startDate,endDate,"UN")) {
             ContentValues args = new ContentValues();
             args.put(KEY_TITLE, title);
             args.put(KEY_BODY, body);
@@ -289,5 +311,22 @@ public class NotesDbAdapter {
         long fCad_aux = aux.getLong(aux.getColumnIndex("endDate"));
         aux.close();
         return fCad_aux;
+    }
+
+    void limpiarBD() {
+        Cursor cr = fetchAllNotes(false,"","",0);
+        cr.moveToFirst();
+
+        long rowid;
+
+        String sri = cr.getString(cr.getColumnIndex(NotesDbAdapter.KEY_ROWID));
+        rowid = Long.parseLong(sri);
+        deleteNote(rowid);
+
+        while (cr.moveToNext()) {
+            sri = cr.getString(cr.getColumnIndex(NotesDbAdapter.KEY_ROWID));
+            rowid = Long.parseLong(sri);
+            deleteNote(rowid);
+        }
     }
 }
