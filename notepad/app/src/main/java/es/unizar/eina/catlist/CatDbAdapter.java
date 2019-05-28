@@ -100,10 +100,15 @@ public class CatDbAdapter {
      * @return rowId or -1 if failed
      */
     long createCategory(String title) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_TITLE, title);
+        if (title != null && !title.isEmpty()) {
+            ContentValues initialValues = new ContentValues();
+            initialValues.put(KEY_TITLE, title);
 
-        return mDb.insert(DATABASE_TABLE, null, initialValues);
+            return mDb.insert(DATABASE_TABLE, null, initialValues);
+        }
+        else {
+            return -1;
+        }
     }
 
     /**
@@ -160,10 +165,15 @@ public class CatDbAdapter {
      * @return true if the category was successfully updated, false otherwise
      */
     boolean updateCategory(long rowId, String title) {
-        ContentValues args = new ContentValues();
-        args.put(KEY_TITLE, title);
+        if (title != null && !title.isEmpty()) {
+            ContentValues args = new ContentValues();
+            args.put(KEY_TITLE, title);
 
-        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+            return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        else {
+            return false;
+        }
     }
 
     /**

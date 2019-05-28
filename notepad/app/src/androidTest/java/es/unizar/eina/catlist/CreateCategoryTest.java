@@ -24,6 +24,7 @@ public class CreateCategoryTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
+    // Clases 1, 2
     @Test
     public void test_CreateCategoryValida() {
         int numCategorias = mDbHelper_test.getCategoriesNumber();
@@ -31,12 +32,14 @@ public class CreateCategoryTest {
         assertEquals(numCategorias + 1, mDbHelper_test.getCategoriesNumber());
     }
 
+    // Clase 3
     @Test
     public void test_CreateCategoryInvalida1() {
         rowid = mDbHelper_test.createCategory(null);
         assertEquals(-1, rowid);
     }
 
+    // Clase 4
     @Test
     public void test_CreateCategoryInvalida2() {
         rowid = mDbHelper_test.createCategory("");

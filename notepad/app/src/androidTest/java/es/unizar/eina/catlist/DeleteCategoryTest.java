@@ -24,6 +24,7 @@ public class DeleteCategoryTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
+    // Clase 1
     @Test
     public void test_DeleteCategoryValida() {
         rowid = mDbHelper_test.createCategory("titulo");
@@ -31,12 +32,14 @@ public class DeleteCategoryTest {
         assertTrue(res);
     }
 
+    // Clase 2
     @Test
     public void test_DeleteCategoryInvalida1() {
         boolean res = mDbHelper_test.deleteCategory(0);
         assertFalse(res);
     }
 
+    // Clase 2
     @Test
     public void test_DeleteCategoryInvalida2() {
         boolean res = mDbHelper_test.deleteCategory(-5);

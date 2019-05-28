@@ -27,6 +27,7 @@ public class DeleteNoteTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
+    // Clase 1
     @Test
     public void test_DeleteNoteValida() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -34,12 +35,14 @@ public class DeleteNoteTest {
         assertTrue(del);
     }
 
+    // Clase 2
     @Test
     public void test_DeleteNoteInvalida1() {
         boolean del = mDbHelper_test.deleteNote(0);
         assertFalse(del);
     }
 
+    // Clase 2
     @Test
     public void test_DeleteNoteInvalida2() {
         boolean del = mDbHelper_test.deleteNote(-5);

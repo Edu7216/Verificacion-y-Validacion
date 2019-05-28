@@ -27,43 +27,65 @@ public class UpdateNoteTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
+    // Clases 1, 3, 4, 7, 9, 10, 13, 14, 16, 17
     @Test
-    public void test_UpdateNoteValida() {
+    public void test_UpdateNoteValida1() {
+        long startDate = new Date().getTime();
+        long endDate = new Date().getTime() + 10;
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
-        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", startDate, endDate);
         assertTrue(upd);
     }
 
+    // Clases 1, 3, 4, 7, 9, 10, 13, 14, 16, 17
+    @Test
+    public void test_UpdateNoteValida2() {
+        long startDate = new Date().getTime();
+        long endDate = startDate;
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", startDate, endDate);
+        assertTrue(upd);
+    }
+
+    // Clase 2
     @Test
     public void test_UpdateNoteInvalida1() {
         boolean upd = mDbHelper_test.updateNote(0, "tituloU", "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
         assertFalse(upd);
     }
 
-    @Test(expected = android.database.sqlite.SQLiteConstraintException.class)
+    // Clase 5
+    @Test
     public void test_UpdateNoteInvalida2() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
-        mDbHelper_test.updateNote(rowid, null, "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, null, "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
+        assertFalse(upd);
     }
 
-    @Test(expected = android.database.sqlite.SQLiteConstraintException.class)
+    // Clase 8
+    @Test
     public void test_UpdateNoteInvalida3() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
-        mDbHelper_test.updateNote(rowid, "tituloU", null, "catU", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", null, "catU", new Date().getTime(), new Date().getTime());
+        assertFalse(upd);
     }
 
-    @Test(expected = android.database.sqlite.SQLiteConstraintException.class)
+    // Clase 12
+    @Test
     public void test_UpdateNoteInvalida4() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
-        mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", null, new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", null, new Date().getTime(), new Date().getTime());
+        assertFalse(upd);
     }
 
+    // Clase 2
     @Test
     public void test_UpdateNoteInvalida5() {
         boolean upd = mDbHelper_test.updateNote(-8, "tituloU", "cuerpoU", "catU", new Date().getTime(), new Date().getTime());
         assertFalse(upd);
     }
 
+    // Clase 6
     @Test
     public void test_UpdateNoteInvalida6() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -71,6 +93,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
+    // Clase 11
     @Test
     public void test_UpdateNoteInvalida7() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -78,6 +101,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
+    // Clase 15
     @Test
     public void test_UpdateNoteInvalida8() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -85,6 +109,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
+    // Clase 15
     @Test
     public void test_UpdateNoteInvalida9() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -92,6 +117,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
+    // Clase 17
     @Test
     public void test_UpdateNoteInvalida10() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -99,11 +125,21 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
+    // Clase 17
     @Test
     public void test_UpdateNoteInvalida11() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
         boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", new Date().getTime(), -8);
         assertFalse(upd);
+    }
+
+    // Clase 16, 18
+    @Test
+    public void test_UpdateNoteInvalida12() {
+        long endDate = new Date().getTime();
+        long startDate = new Date().getTime() + 10;
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
+        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", startDate, endDate);
     }
 
     @After

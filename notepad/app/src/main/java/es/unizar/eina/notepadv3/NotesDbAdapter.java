@@ -105,14 +105,19 @@ public class NotesDbAdapter {
      * @return rowId or -1 if failed
      */
     long createNote(String title, String body, String category, long startDate, long endDate) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_TITLE, title);
-        initialValues.put(KEY_BODY, body);
-        initialValues.put(KEY_CATEGORY, category);
-        initialValues.put(KEY_STARTDATE, startDate);
-        initialValues.put(KEY_ENDDATE, endDate);
+        if (title != null && category != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate) {
+            ContentValues initialValues = new ContentValues();
+            initialValues.put(KEY_TITLE, title);
+            initialValues.put(KEY_BODY, body);
+            initialValues.put(KEY_CATEGORY, category);
+            initialValues.put(KEY_STARTDATE, startDate);
+            initialValues.put(KEY_ENDDATE, endDate);
 
-        return mDb.insert(DATABASE_TABLE, null, initialValues);
+            return mDb.insert(DATABASE_TABLE, null, initialValues);
+        }
+        else {
+            return -1;
+        }
     }
 
     /**
@@ -214,14 +219,19 @@ public class NotesDbAdapter {
      * @return true if updated, false otherwise
      */
     boolean updateNote(long rowId, String title, String body, String category, long startDate, long endDate) {
-        ContentValues args = new ContentValues();
-        args.put(KEY_TITLE, title);
-        args.put(KEY_BODY, body);
-        args.put(KEY_CATEGORY, category);
-        args.put(KEY_STARTDATE, startDate);
-        args.put(KEY_ENDDATE, endDate);
+        if (title != null && category != null && body != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate) {
+            ContentValues args = new ContentValues();
+            args.put(KEY_TITLE, title);
+            args.put(KEY_BODY, body);
+            args.put(KEY_CATEGORY, category);
+            args.put(KEY_STARTDATE, startDate);
+            args.put(KEY_ENDDATE, endDate);
 
-        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+            return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        else {
+            return false;
+        }
     }
 
     /**

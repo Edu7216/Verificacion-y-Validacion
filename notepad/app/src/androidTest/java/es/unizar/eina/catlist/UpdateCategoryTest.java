@@ -27,6 +27,7 @@ public class UpdateCategoryTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
+    // Clases 1, 3, 4
     @Test
     public void test_UpdateCategoryValida() {
         rowid = mDbHelper_test.createCategory("titulo");
@@ -34,23 +35,33 @@ public class UpdateCategoryTest {
         assertTrue(res);
     }
 
+    // Clase 2
     @Test
     public void test_UpdateCategoryInvalida1() {
         boolean res = mDbHelper_test.updateCategory(0, "tituloU");
         assertFalse(res);
     }
 
-    @Test(expected = android.database.sqlite.SQLiteConstraintException.class)
+    // Clase 5
+    @Test
     public void test_UpdateCategoryInvalida2() {
         rowid = mDbHelper_test.createCategory("titulo");
         boolean res = mDbHelper_test.updateCategory(rowid, null);
         assertFalse(res);
     }
 
+    // Clase 6
     @Test
     public void test_UpdateCategoryInvalida3() {
         rowid = mDbHelper_test.createCategory("titulo");
         boolean res = mDbHelper_test.updateCategory(rowid, "");
+        assertFalse(res);
+    }
+
+    // Clase 2
+    @Test
+    public void test_UpdateCategoryInvalida4() {
+        boolean res = mDbHelper_test.updateCategory(-8, "tituloU");
         assertFalse(res);
     }
 
