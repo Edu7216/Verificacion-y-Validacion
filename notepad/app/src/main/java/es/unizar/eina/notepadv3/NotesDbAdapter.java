@@ -80,9 +80,9 @@ public class NotesDbAdapter {
     private boolean parametrosValidos(String title, String body, String category, long startDate, long endDate, String op) {
         switch (op) {
             case "CN":
-                return title != null && category != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate;
+                return title != null && category != null && !title.isEmpty() && startDate > 0 && startDate <= endDate;
             case "UN":
-                return title != null && category != null && body != null && !title.isEmpty() && !category.isEmpty() && startDate > 0 && startDate <= endDate;
+                return title != null && category != null && body != null && !title.isEmpty() && startDate > 0 && startDate <= endDate;
             default:
                 return false;
         }
@@ -157,7 +157,7 @@ public class NotesDbAdapter {
      *
      * @param category category to delete
      */
-    public void deleteCategory(String category) {
+    public void deleteCategory(String category) throws SQLException {
         mDb.execSQL("UPDATE " + DATABASE_TABLE + " SET " + KEY_CATEGORY + " = '' " +
                 " WHERE " + KEY_CATEGORY + " = '"+ category + "'");
     }
@@ -262,7 +262,7 @@ public class NotesDbAdapter {
      * @param old_category category to update
      * @param new_category category to set
      */
-    public void updateCategory(String old_category, String new_category) {
+    public void updateCategory(String old_category, String new_category) throws SQLException {
         mDb.execSQL("UPDATE " + DATABASE_TABLE + " SET " + KEY_CATEGORY + " = '" + new_category +
                 "' WHERE " + KEY_CATEGORY + " = '"+ old_category + "'");
     }
@@ -318,10 +318,13 @@ public class NotesDbAdapter {
         cr.moveToFirst();
 
         long rowid;
+        String sri;
 
-        String sri = cr.getString(cr.getColumnIndex(NotesDbAdapter.KEY_ROWID));
-        rowid = Long.parseLong(sri);
-        deleteNote(rowid);
+        if (cr.moveToFirst()) {
+            sri = cr.getString(cr.getColumnIndex(NotesDbAdapter.KEY_ROWID));
+            rowid = Long.parseLong(sri);
+            deleteNote(rowid);
+        }
 
         while (cr.moveToNext()) {
             sri = cr.getString(cr.getColumnIndex(NotesDbAdapter.KEY_ROWID));

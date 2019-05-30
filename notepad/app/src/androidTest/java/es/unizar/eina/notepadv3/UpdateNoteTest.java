@@ -27,7 +27,7 @@ public class UpdateNoteTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
-    // Clases 1, 3, 4, 7, 9, 10, 13, 14, 16, 17
+    // Clases 1, 3, 4, 7, 9, 11, 12, 15, 16
     @Test
     public void test_UpdateNoteValida1() {
         long startDate = new Date().getTime();
@@ -37,7 +37,7 @@ public class UpdateNoteTest {
         assertTrue(upd);
     }
 
-    // Clases 1, 3, 4, 7, 9, 10, 13, 14, 16, 17
+    // Clases 1, 3, 4, 7, 9, 11, 12, 15, 16
     @Test
     public void test_UpdateNoteValida2() {
         long startDate = new Date().getTime();
@@ -70,7 +70,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 12
+    // Clase 10
     @Test
     public void test_UpdateNoteInvalida4() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -93,15 +93,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 11
-    @Test
-    public void test_UpdateNoteInvalida7() {
-        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
-        boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "", new Date().getTime(), new Date().getTime());
-        assertFalse(upd);
-    }
-
-    // Clase 15
+    // Clase 13
     @Test
     public void test_UpdateNoteInvalida8() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -109,7 +101,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 15
+    // Clase 13
     @Test
     public void test_UpdateNoteInvalida9() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -133,7 +125,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 16, 18
+    // Clase 14, 18
     @Test
     public void test_UpdateNoteInvalida12() {
         long endDate = new Date().getTime();

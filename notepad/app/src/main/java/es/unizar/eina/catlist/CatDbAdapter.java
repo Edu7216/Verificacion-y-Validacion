@@ -90,6 +90,14 @@ public class CatDbAdapter {
         mDbHelper.close();
     }
 
+    /**
+     *
+     * @param title titulo
+     * @return true si es correctos, false en caso contrario
+     */
+    private boolean parametrosValidos(String title) {
+        return title != null && !title.isEmpty();
+    }
 
     /**
      * Create a new category using the title and body provided. If the category is
@@ -100,7 +108,7 @@ public class CatDbAdapter {
      * @return rowId or -1 if failed
      */
     long createCategory(String title) {
-        if (title != null && !title.isEmpty()) {
+        if (parametrosValidos(title)) {
             ContentValues initialValues = new ContentValues();
             initialValues.put(KEY_TITLE, title);
 
@@ -165,7 +173,7 @@ public class CatDbAdapter {
      * @return true if the category was successfully updated, false otherwise
      */
     boolean updateCategory(long rowId, String title) {
-        if (title != null && !title.isEmpty()) {
+        if (parametrosValidos(title)) {
             ContentValues args = new ContentValues();
             args.put(KEY_TITLE, title);
 

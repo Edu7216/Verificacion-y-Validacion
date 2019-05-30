@@ -288,4 +288,9 @@ public class FetchAllNotesTest {
         assertEquals("cuerpo",cmpn2);
         assertEquals("cat",cmpn3);
     }
+
+    @After
+    public void tearDown() {
+        mDbHelper_test.limpiarBD();
+    }
 }

@@ -26,7 +26,7 @@ public class CreateNoteTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
-    // Clases 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    // Clases 1, 2, 3, 4, 5, 6, 7, 8
     @Test
     public void test_CreateNoteValida1() {
         long startDate = new Date().getTime();
@@ -36,7 +36,7 @@ public class CreateNoteTest {
         assertEquals(numNotas + 1, mDbHelper_test.getNotesNumber());
     }
 
-    // Clases 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    // Clases 1, 2, 3, 4, 5, 6, 7, 8
     @Test
     public void test_CreateNoteValida2() {
         long startDate = new Date().getTime();
@@ -46,70 +46,63 @@ public class CreateNoteTest {
         assertEquals(numNotas + 1, mDbHelper_test.getNotesNumber());
     }
 
-    // Clase 11
+    // Clase 9
     @Test
     public void test_CreateNoteInvalida1() {
         rowid = mDbHelper_test.createNote(null, "cuerpo", "cat", new Date().getTime(), new Date().getTime());
         assertEquals(-1, rowid);
     }
 
-    // Clase 13
+    // Clase 11
     @Test
     public void test_CreateNoteInvalida2() {
         rowid = mDbHelper_test.createNote("titulo", null, "cat", new Date().getTime(), new Date().getTime());
         assertEquals(-1, rowid);
     }
 
-    // Clase 14
+    // Clase 12
     @Test
     public void test_CreateNoteInvalida3() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", null, new Date().getTime(), new Date().getTime());
         assertEquals(-1, rowid);
     }
 
-    // Clase 12
+    // Clase 10
     @Test
     public void test_CreateNoteInvalida4() {
         rowid = mDbHelper_test.createNote("", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
         assertEquals(-1, rowid);
     }
 
-    // Clase 15
-    @Test
-    public void test_CreateNoteInvalida5() {
-        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "", new Date().getTime(), new Date().getTime());
-        assertEquals(-1, rowid);
-    }
-
-    // Clase 16
+    // Clase 13
     @Test
     public void test_CreateNoteInvalida6() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", 0, new Date().getTime());
         assertEquals(-1, rowid);
     }
 
-    // Clase 16
+    // Clase 13
     @Test
     public void test_CreateNoteInvalida7() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", -10, new Date().getTime());
         assertEquals(-1, rowid);
     }
 
-    // Clase 18
+    // Clase 15
     @Test
     public void test_CreateNoteInvalida8() {
-        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "", new Date().getTime(), 0);
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), 0);
         assertEquals(-1, rowid);
     }
 
-    // Clase 18
+    // Clase 15
     @Test
     public void test_CreateNoteInvalida9() {
-        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "", new Date().getTime(), -10);
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), -10);
         assertEquals(-1, rowid);
     }
 
-    // Clase 17, 19
+    // Clase 14, 16
     @Test
     public void test_CreateNoteInvalida10() {
         long endDate = new Date().getTime();
