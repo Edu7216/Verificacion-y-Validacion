@@ -54,7 +54,7 @@ public class FetchNoteTest {
     // Clase 2
     @Test(expected = SQLException.class)
     public void test_BusquedaInvalida2() {
-        Cursor cr = mDbHelper_test.fetchNote(0);
+        Cursor cr = mDbHelper_test.fetchNote(-5);
     }
 
     @After

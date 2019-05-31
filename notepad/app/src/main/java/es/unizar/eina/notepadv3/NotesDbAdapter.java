@@ -158,8 +158,13 @@ public class NotesDbAdapter {
      * @param category category to delete
      */
     public void deleteCategory(String category) throws SQLException {
-        mDb.execSQL("UPDATE " + DATABASE_TABLE + " SET " + KEY_CATEGORY + " = '' " +
-                " WHERE " + KEY_CATEGORY + " = '"+ category + "'");
+        if (category == null) {
+            throw new SQLException();
+        }
+        else {
+            mDb.execSQL("UPDATE " + DATABASE_TABLE + " SET " + KEY_CATEGORY + " = '' " +
+                    " WHERE " + KEY_CATEGORY + " = '"+ category + "'");
+        }
     }
 
     /**
@@ -216,18 +221,21 @@ public class NotesDbAdapter {
      * @throws SQLException if note could not be found/retrieved
      */
     Cursor fetchNote(long rowId) throws SQLException {
-
-        Cursor mCursor =
-
-                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                                KEY_TITLE, KEY_BODY, KEY_CATEGORY, KEY_STARTDATE, KEY_ENDDATE},
-                        KEY_ROWID + "=" + rowId, null, null,
-                        null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
+        if (rowId <= 0) {
+            throw new SQLException();
         }
-        return mCursor;
+        else {
+            Cursor mCursor =
 
+                    mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+                                    KEY_TITLE, KEY_BODY, KEY_CATEGORY, KEY_STARTDATE, KEY_ENDDATE},
+                            KEY_ROWID + "=" + rowId, null, null,
+                            null, null, null);
+            if (mCursor != null) {
+                mCursor.moveToFirst();
+            }
+            return mCursor;
+        }
     }
 
     /**
@@ -263,8 +271,13 @@ public class NotesDbAdapter {
      * @param new_category category to set
      */
     public void updateCategory(String old_category, String new_category) throws SQLException {
-        mDb.execSQL("UPDATE " + DATABASE_TABLE + " SET " + KEY_CATEGORY + " = '" + new_category +
-                "' WHERE " + KEY_CATEGORY + " = '"+ old_category + "'");
+        if (old_category == null || new_category == null) {
+            throw new SQLException();
+        }
+        else {
+            mDb.execSQL("UPDATE " + DATABASE_TABLE + " SET " + KEY_CATEGORY + " = '" + new_category +
+                    "' WHERE " + KEY_CATEGORY + " = '"+ old_category + "'");
+        }
     }
 
     /**
