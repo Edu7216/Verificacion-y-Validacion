@@ -96,6 +96,17 @@ public class CatDbAdapter {
      * @return true si es correctos, false en caso contrario
      */
     private boolean parametrosValidos(String title) {
+        int counter = 0;
+        char[] nameArray = title.toCharArray();
+        for (int i = 0; i < nameArray.length; i++){
+            if(Character.isLetter(nameArray[i]) || Character.isDigit(nameArray[i])){
+                counter++;
+            }
+        }
+        if(counter == 0){
+            return false;
+        }
+
         return title != null && !title.isEmpty();
     }
 

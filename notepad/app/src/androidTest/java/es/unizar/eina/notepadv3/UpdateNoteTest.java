@@ -27,7 +27,7 @@ public class UpdateNoteTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
-    // Clases 1, 3, 4, 7, 9, 11, 12, 15, 16
+    // Clases 1, 3, 4, 5, 9, 11, 13, 14, 17, 18
     @Test
     public void test_UpdateNoteValida1() {
         long startDate = new Date().getTime();
@@ -37,7 +37,7 @@ public class UpdateNoteTest {
         assertTrue(upd);
     }
 
-    // Clases 1, 3, 4, 7, 9, 11, 12, 15, 16
+    // Clases 1, 3, 4, 5, 9, 11, 13, 14, 17, 18
     @Test
     public void test_UpdateNoteValida2() {
         long startDate = new Date().getTime();
@@ -54,7 +54,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 5
+    // Clase 6
     @Test
     public void test_UpdateNoteInvalida2() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -62,7 +62,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 8
+    // Clase 10
     @Test
     public void test_UpdateNoteInvalida3() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -70,7 +70,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 10
+    // Clase 1w
     @Test
     public void test_UpdateNoteInvalida4() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -85,7 +85,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 6
+    // Clase 7
     @Test
     public void test_UpdateNoteInvalida6() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -93,7 +93,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 13
+    // Clase 15
     @Test
     public void test_UpdateNoteInvalida8() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -101,7 +101,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 13
+    // Clase 15
     @Test
     public void test_UpdateNoteInvalida9() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -109,7 +109,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 17
+    // Clase 19
     @Test
     public void test_UpdateNoteInvalida10() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -117,7 +117,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 17
+    // Clase 19
     @Test
     public void test_UpdateNoteInvalida11() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -125,13 +125,22 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 14, 18
+    // Clase 16, 20
     @Test
     public void test_UpdateNoteInvalida12() {
         long endDate = new Date().getTime();
         long startDate = new Date().getTime() + 10;
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
         boolean upd = mDbHelper_test.updateNote(rowid, "tituloU", "cuerpoU", "catU", startDate, endDate);
+        assertFalse(upd);
+    }
+
+    // Clase 8
+    @Test
+    public void test_UpdateNoteInvalida13() {
+        rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", 1, 10);
+        boolean upd = mDbHelper_test.updateNote(rowid, "'", "cuerpoU", "catU", 1, 10);
+        assertFalse(upd);
     }
 
     @After

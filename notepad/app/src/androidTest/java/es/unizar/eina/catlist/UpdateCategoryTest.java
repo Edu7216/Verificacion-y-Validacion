@@ -27,7 +27,7 @@ public class UpdateCategoryTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
-    // Clases 1, 3, 4
+    // Clases 1, 3, 4, 5
     @Test
     public void test_UpdateCategoryValida() {
         rowid = mDbHelper_test.createCategory("titulo");
@@ -37,12 +37,19 @@ public class UpdateCategoryTest {
 
     // Clase 2
     @Test
+    public void test_UpdateCategoryInvalida4() {
+        boolean res = mDbHelper_test.updateCategory(-8, "tituloU");
+        assertFalse(res);
+    }
+
+    // Clase 2
+    @Test
     public void test_UpdateCategoryInvalida1() {
         boolean res = mDbHelper_test.updateCategory(0, "tituloU");
         assertFalse(res);
     }
 
-    // Clase 5
+    // Clase 6
     @Test
     public void test_UpdateCategoryInvalida2() {
         rowid = mDbHelper_test.createCategory("titulo");
@@ -50,7 +57,7 @@ public class UpdateCategoryTest {
         assertFalse(res);
     }
 
-    // Clase 6
+    // Clase 7
     @Test
     public void test_UpdateCategoryInvalida3() {
         rowid = mDbHelper_test.createCategory("titulo");
@@ -58,10 +65,12 @@ public class UpdateCategoryTest {
         assertFalse(res);
     }
 
-    // Clase 2
+    // Clase 8
     @Test
-    public void test_UpdateCategoryInvalida4() {
-        boolean res = mDbHelper_test.updateCategory(-8, "tituloU");
+    public void test_UpdateCategoryInvalida5() {
+        rowid = mDbHelper_test.createCategory("titulo");
+        boolean res = mDbHelper_test.updateCategory(rowid, "'"
+        );
         assertFalse(res);
     }
 
