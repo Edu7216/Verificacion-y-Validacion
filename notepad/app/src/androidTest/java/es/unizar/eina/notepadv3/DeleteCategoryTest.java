@@ -29,7 +29,7 @@ public class DeleteCategoryTest {
         mDbHelper_test = activityRule.getActivity().getmDbHelper();
     }
 
-    // Clases 1, 2, 3, 4
+    // Clase 1
     @Test
     public void test_DeleteCategoryValida() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
@@ -39,6 +39,7 @@ public class DeleteCategoryTest {
         assertEquals("",cat);
     }
 
+    // Clase 2
     @Test(expected = SQLException.class)
     public void test_DeleteCategoryInvalida() {
         mDbHelper_test.deleteCategory(null);

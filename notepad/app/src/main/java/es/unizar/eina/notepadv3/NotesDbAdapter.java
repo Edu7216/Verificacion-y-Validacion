@@ -78,23 +78,20 @@ public class NotesDbAdapter {
      * @return true si son correctos, false en caso contrario
      */
     private boolean parametrosValidos(String title, String body, String category, long startDate, long endDate, String op) {
-        if(title.length() > 0) {
-            int counter = 0;
+        int counter = 0;
+        if(title != null && title.length() > 0) {
             char[] titleArray = title.toCharArray();
-            for (int i = 0; i < titleArray.length; i++) {
-                if (Character.isLetter(titleArray[i]) || Character.isDigit(titleArray[i])) {
+            for (char aTitleArray : titleArray) {
+                if (Character.isLetter(aTitleArray) || Character.isDigit(aTitleArray)) {
                     counter++;
                 }
-            }
-            if (counter == 0) {
-                return false;
             }
         }
         switch (op) {
             case "CN":
-                return title != null && category != null && !title.isEmpty() && startDate > 0 && startDate <= endDate;
+                return title != null && category != null && !title.isEmpty() && startDate > 0 && startDate <= endDate &&  counter != 0;
             case "UN":
-                return title != null && category != null && body != null && !title.isEmpty() && startDate > 0 && startDate <= endDate;
+                return title != null && category != null && body != null && !title.isEmpty() && startDate > 0 && startDate <= endDate && counter != 0;
             default:
                 return false;
         }

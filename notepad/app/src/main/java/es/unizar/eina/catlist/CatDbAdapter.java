@@ -97,17 +97,16 @@ public class CatDbAdapter {
      */
     private boolean parametrosValidos(String title) {
         int counter = 0;
-        char[] nameArray = title.toCharArray();
-        for (int i = 0; i < nameArray.length; i++){
-            if(Character.isLetter(nameArray[i]) || Character.isDigit(nameArray[i])){
-                counter++;
+        if (title != null && title.length() > 0) {
+            char[] nameArray = title.toCharArray();
+            for (char aNameArray : nameArray) {
+                if (Character.isLetter(aNameArray) || Character.isDigit(aNameArray)) {
+                    counter++;
+                }
             }
         }
-        if(counter == 0){
-            return false;
-        }
 
-        return title != null && !title.isEmpty();
+        return title != null && !title.isEmpty() && counter != 0;
     }
 
     /**
@@ -137,7 +136,6 @@ public class CatDbAdapter {
      * @return true if deleted, false otherwise
      */
     boolean deleteCategory(long rowId) {
-
         return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
     }
 
@@ -161,17 +159,20 @@ public class CatDbAdapter {
      * @throws SQLException if category could not be found/retrieved
      */
     Cursor fetchCategory(long rowId) throws SQLException {
-
-        Cursor mCursor =
-
-                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                                KEY_TITLE}, KEY_ROWID + "=" + rowId, null,
-                        null, null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
+        if (rowId <= 0) {
+            throw new SQLException();
         }
-        return mCursor;
+        else {
+            Cursor mCursor =
 
+                    mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+                                    KEY_TITLE}, KEY_ROWID + "=" + rowId, null,
+                            null, null, null, null);
+            if (mCursor != null) {
+                mCursor.moveToFirst();
+            }
+            return mCursor;
+        }
     }
 
     /**

@@ -70,7 +70,7 @@ public class UpdateNoteTest {
         assertFalse(upd);
     }
 
-    // Clase 1w
+    // Clase 6
     @Test
     public void test_UpdateNoteInvalida4() {
         rowid = mDbHelper_test.createNote("titulo", "cuerpo", "cat", new Date().getTime(), new Date().getTime());

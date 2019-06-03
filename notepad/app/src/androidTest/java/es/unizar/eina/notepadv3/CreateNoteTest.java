@@ -114,7 +114,7 @@ public class CreateNoteTest {
     // Clase 12
     @Test
     public void test_CreateNoteInvalida11() {
-        rowid = mDbHelper_test.createNote("'", "cuerpo", "cat", 1, 10);
+        rowid = mDbHelper_test.createNote("'", "cuerpo", "cat", new Date().getTime(), new Date().getTime());
         assertEquals(-1, rowid);
     }
 
