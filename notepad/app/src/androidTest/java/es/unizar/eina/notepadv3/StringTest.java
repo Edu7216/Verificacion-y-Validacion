@@ -46,14 +46,14 @@ public class StringTest {
 
     // Clases 8:75
     @Test
-    public void test_StringInvalida() {
+    public void test_StringInvalida1() {
         long startDate = new Date().getTime();
         long endDate = new Date().getTime() + 10;
         int j = 0;
         char ch;
         for(int i = 0; i <= 32; i++) {
             ch = (char) i;
-            mDbHelper_test.createNote("Titulo " + i + " - " + ch, "cuerpo",
+            mDbHelper_test.createNote(j + " " + ch, "cuerpo",
                     "cat", startDate, endDate);
             j = i;
         }
@@ -61,12 +61,12 @@ public class StringTest {
         for(int i = 127; i <= 160; i++) {
             j++;
             ch = (char) i;
-            mDbHelper_test.createNote("Titulo " + j + " - " + ch, "cuerpo",
+            mDbHelper_test.createNote(j + " " + ch, "cuerpo",
                     "cat", startDate, endDate);
         }
         j++;
         ch = 173;
-        mDbHelper_test.createNote("Titulo " + j + " - " + ch, "cuerpo",
+        mDbHelper_test.createNote(j + " " + ch, "cuerpo",
                 "cat", startDate, endDate);
         //COMPROBACION MANUAL
         assertEquals(1, 1);
@@ -74,52 +74,29 @@ public class StringTest {
 
     // Clases 8:75
     @Test
-    public void test_StringInvalidaAntes(){
-        long startDate = new Date().getTime();
-        long endDate = new Date().getTime() + 10;
-        for (int i = 0; i <=67; i++){
-            rowid = mDbHelper_test.createNote("Titulo " + i + " - ", "cuerpo",
-                    "cat", startDate, endDate);
-        }
-        //COMPROBACION MANUAL
-        assertEquals(1, 1);
-    }
-
-    // Clases 8:75
-    @Test
-    public void test_StringInvalidaDespues(){
+    public void test_StringInvalida2() {
         long startDate = new Date().getTime();
         long endDate = new Date().getTime() + 10;
         int j = 0;
-        int i = 0;
         char ch;
-        String sri;
-        Cursor cr = mDbHelper_test.fetchAllNotes(false,"","",0);
-        if (cr.moveToFirst()) {
-            sri = cr.getString(cr.getColumnIndex(NotesDbAdapter.KEY_ROWID));
-            rowid = Long.parseLong(sri);
-            ch = (char) j;
-            mDbHelper_test.updateNote(rowid, "Titulo " + i + " - " + ch, j+"", "catU", startDate, endDate);
-            j++;
-            i++;
+        for(int i = 0; i <= 32; i++) {
+            ch = (char) i;
+            mDbHelper_test.createNote("Titulo " + i + " - " + ch + " - Titulo", "cuerpo",
+                    "cat", startDate, endDate);
+            j = i;
         }
 
-        while (cr.moveToNext()) {
-            sri = cr.getString(cr.getColumnIndex(NotesDbAdapter.KEY_ROWID));
-            rowid = Long.parseLong(sri);
-            ch = (char) j;
-            mDbHelper_test.updateNote(rowid, "Titulo " + i + " - " + ch, j+"", "catU", startDate, endDate);
-            if(j == 32){
-                j = 127;
-            } else if(j == 160){
-                j = 173;
-            } else {
-                j++;
-            }
-            i++;
+        for(int i = 127; i <= 160; i++) {
+            j++;
+            ch = (char) i;
+            mDbHelper_test.createNote("Titulo " + j + " - " + ch + " - Titulo", "cuerpo",
+                    "cat", startDate, endDate);
         }
+        j++;
+        ch = 173;
+        mDbHelper_test.createNote("Titulo " + j + " - " + ch + " - Titulo", "cuerpo",
+                "cat", startDate, endDate);
         //COMPROBACION MANUAL
         assertEquals(1, 1);
     }
-
 }
