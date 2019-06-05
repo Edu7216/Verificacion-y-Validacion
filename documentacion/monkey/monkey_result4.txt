@@ -1,0 +1,475 @@
+:Monkey: seed=1559863663957 count=2000
+:AllowPackage: es.unizar.eina.notepadv1
+:IncludeCategory: android.intent.category.LAUNCHER
+:IncludeCategory: android.intent.category.MONKEY
+// Event percentages:
+//   0: 15.0%
+//   1: 10.0%
+//   2: 2.0%
+//   3: 15.0%
+//   4: -0.0%
+//   5: -0.0%
+//   6: 25.0%
+//   7: 15.0%
+//   8: 2.0%
+//   9: 2.0%
+//   10: 1.0%
+//   11: 13.0%
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(472.0,369.0)
+:Sending Touch (ACTION_UP): 0:(468.17252,376.44608)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(648.0,322.0)
+:Sending Touch (ACTION_UP): 0:(661.0875,326.7069)
+:Sending Touch (ACTION_DOWN): 0:(752.0,119.0)
+:Sending Touch (ACTION_UP): 0:(745.57996,118.16696)
+:Sending Touch (ACTION_DOWN): 0:(408.0,105.0)
+:Sending Touch (ACTION_UP): 0:(407.98856,127.48949)
+:Sending Touch (ACTION_DOWN): 0:(219.0,270.0)
+:Sending Touch (ACTION_UP): 0:(198.83401,322.26028)
+:Sending Touch (ACTION_DOWN): 0:(521.0,652.0)
+:Sending Touch (ACTION_UP): 0:(527.55115,633.1294)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+    //[calendar_time:2019-06-05 12:56:37.012  system_uptime:46889431]
+    // Sending event #100
+    //[calendar_time:2019-06-05 12:56:37.012  system_uptime:46889432]
+    // Sending event #100
+:Sending Touch (ACTION_DOWN): 0:(296.0,296.0)
+:Sending Touch (ACTION_UP): 0:(337.14374,315.97156)
+:Sending Touch (ACTION_DOWN): 0:(731.0,886.0)
+:Sending Touch (ACTION_UP): 0:(730.5053,874.26984)
+:Sending Touch (ACTION_DOWN): 0:(683.0,631.0)
+:Sending Touch (ACTION_UP): 0:(682.6779,630.73834)
+:Sending Touch (ACTION_DOWN): 0:(105.0,28.0)
+:Sending Touch (ACTION_UP): 0:(112.36643,30.955973)
+:Sending Touch (ACTION_DOWN): 0:(360.0,786.0)
+:Sending Touch (ACTION_UP): 0:(361.7693,785.7269)
+:Sending Touch (ACTION_DOWN): 0:(377.0,750.0)
+:Sending Touch (ACTION_UP): 0:(322.76178,733.2812)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(709.0,1006.0)
+:Sending Touch (ACTION_UP): 0:(701.9464,1008.0898)
+:Sending Touch (ACTION_DOWN): 0:(729.0,1144.0)
+:Sending Touch (ACTION_UP): 0:(701.5019,1184.0)
+:Sending Touch (ACTION_DOWN): 0:(709.0,155.0)
+:Sending Touch (ACTION_UP): 0:(707.75775,168.20891)
+:Sending Touch (ACTION_DOWN): 0:(64.0,1139.0)
+:Sending Touch (ACTION_UP): 0:(67.52114,1135.1665)
+:Sending Touch (ACTION_DOWN): 0:(581.0,944.0)
+    //[calendar_time:2019-06-05 12:56:37.497  system_uptime:46889917]
+    // Sending event #200
+:Sending Touch (ACTION_UP): 0:(571.7236,929.3484)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(61.0,1133.0)
+:Sending Touch (ACTION_UP): 0:(134.54779,1128.4948)
+:Sending Touch (ACTION_DOWN): 0:(316.0,179.0)
+:Sending Touch (ACTION_UP): 0:(316.8381,179.26416)
+:Sending Touch (ACTION_DOWN): 0:(261.0,242.0)
+:Sending Touch (ACTION_UP): 0:(264.54935,236.9125)
+:Sending Touch (ACTION_DOWN): 0:(311.0,766.0)
+:Sending Touch (ACTION_UP): 0:(310.03424,764.40845)
+:Sending Touch (ACTION_DOWN): 0:(165.0,545.0)
+:Sending Touch (ACTION_UP): 0:(181.19507,546.89435)
+:Sending Touch (ACTION_DOWN): 0:(624.0,1096.0)
+:Sending Touch (ACTION_UP): 0:(632.7828,1141.2208)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(749.0,234.0)
+:Sending Touch (ACTION_UP): 0:(733.5385,222.81744)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+    //[calendar_time:2019-06-05 12:56:38.078  system_uptime:46890497]
+    // Sending event #300
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(568.0,128.0)
+:Sending Touch (ACTION_UP): 0:(565.9188,124.01177)
+:Sending Touch (ACTION_DOWN): 0:(408.0,412.0)
+:Sending Touch (ACTION_UP): 0:(409.1672,425.3289)
+:Sending Touch (ACTION_DOWN): 0:(332.0,593.0)
+:Sending Touch (ACTION_UP): 0:(322.558,581.9202)
+:Sending Touch (ACTION_DOWN): 0:(6.0,541.0)
+:Sending Touch (ACTION_UP): 0:(0.0,519.93896)
+:Sending Touch (ACTION_DOWN): 0:(739.0,657.0)
+:Sending Touch (ACTION_UP): 0:(729.20685,660.65985)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(711.0,658.0)
+:Sending Touch (ACTION_UP): 0:(715.8061,661.13354)
+:Sending Touch (ACTION_DOWN): 0:(356.0,753.0)
+:Sending Touch (ACTION_UP): 0:(351.17178,738.87317)
+:Sending Touch (ACTION_DOWN): 0:(376.0,736.0)
+:Sending Touch (ACTION_UP): 0:(362.08746,722.82166)
+:Sending Touch (ACTION_DOWN): 0:(737.0,211.0)
+:Sending Touch (ACTION_UP): 0:(768.0,199.86911)
+:Sending Touch (ACTION_DOWN): 0:(699.0,630.0)
+:Sending Touch (ACTION_UP): 0:(768.0,680.97095)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.android.launcher3/.Launcher } in package com.android.launcher3
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+    //[calendar_time:2019-06-05 12:56:39.017  system_uptime:46891436]
+    // Sending event #400
+    //[calendar_time:2019-06-05 12:56:39.017  system_uptime:46891437]
+    // Sending event #400
+    // activityResuming(es.unizar.eina.notepadv1)
+:Sending Touch (ACTION_DOWN): 0:(92.0,44.0)
+:Sending Touch (ACTION_UP): 0:(108.12437,22.230848)
+:Sending Touch (ACTION_DOWN): 0:(78.0,277.0)
+:Sending Touch (ACTION_UP): 0:(59.05297,341.60696)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(599.0,626.0)
+:Sending Touch (ACTION_UP): 0:(589.5586,623.216)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,0.0)
+    // Injection Failed
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(393.0,408.0)
+:Sending Touch (ACTION_UP): 0:(385.98926,407.89615)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(190.0,318.0)
+    //[calendar_time:2019-06-05 12:56:39.805  system_uptime:46892224]
+    // Sending event #500
+:Sending Touch (ACTION_UP): 0:(220.95273,316.63412)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(290.0,106.0)
+:Sending Touch (ACTION_UP): 0:(291.90964,97.103134)
+:Sending Touch (ACTION_DOWN): 0:(141.0,136.0)
+:Sending Touch (ACTION_UP): 0:(130.44008,144.57066)
+:Sending Touch (ACTION_DOWN): 0:(211.0,275.0)
+:Sending Touch (ACTION_UP): 0:(193.90237,278.5847)
+:Sending Touch (ACTION_DOWN): 0:(79.0,284.0)
+:Sending Touch (ACTION_UP): 0:(69.90491,317.14752)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(399.0,179.0)
+:Sending Touch (ACTION_UP): 0:(401.30188,178.43959)
+:Sending Touch (ACTION_DOWN): 0:(424.0,1060.0)
+:Sending Touch (ACTION_UP): 0:(433.4157,1056.6814)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(252.0,626.0)
+:Sending Touch (ACTION_UP): 0:(257.43948,608.48285)
+:Sending Touch (ACTION_DOWN): 0:(195.0,340.0)
+    //[calendar_time:2019-06-05 12:56:40.130  system_uptime:46892550]
+    // Sending event #600
+:Sending Touch (ACTION_UP): 0:(162.68648,397.98148)
+:Sending Touch (ACTION_DOWN): 0:(667.0,776.0)
+:Sending Touch (ACTION_UP): 0:(645.45465,792.9026)
+:Sending Touch (ACTION_DOWN): 0:(642.0,1166.0)
+:Sending Touch (ACTION_UP): 0:(639.2643,1173.2554)
+:Sending Touch (ACTION_DOWN): 0:(346.0,419.0)
+:Sending Touch (ACTION_UP): 0:(392.9621,468.14243)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(399.0,150.0)
+:Sending Touch (ACTION_UP): 0:(377.87375,110.990166)
+:Sending Touch (ACTION_DOWN): 0:(530.0,201.0)
+:Sending Touch (ACTION_UP): 0:(512.233,240.2627)
+:Sending Touch (ACTION_DOWN): 0:(258.0,226.0)
+:Sending Touch (ACTION_UP): 0:(288.43317,229.51373)
+:Sending Touch (ACTION_DOWN): 0:(740.0,301.0)
+:Sending Touch (ACTION_UP): 0:(707.67456,279.90295)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(415.0,775.0)
+:Sending Touch (ACTION_UP): 0:(433.36606,768.35175)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(762.0,991.0)
+:Sending Touch (ACTION_UP): 0:(768.0,1011.7279)
+    //[calendar_time:2019-06-05 12:56:40.581  system_uptime:46893000]
+    // Sending event #700
+:Sending Touch (ACTION_DOWN): 0:(636.0,229.0)
+:Sending Touch (ACTION_UP): 0:(635.96594,229.12933)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(711.0,520.0)
+:Sending Touch (ACTION_UP): 0:(703.3546,522.7726)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(272.0,204.0)
+:Sending Touch (ACTION_UP): 0:(277.44702,202.78067)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(69.0,125.0)
+:Sending Touch (ACTION_UP): 0:(68.64705,128.17642)
+:Sending Touch (ACTION_DOWN): 0:(138.0,160.0)
+:Sending Touch (ACTION_UP): 0:(160.82124,158.31169)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(744.0,1065.0)
+:Sending Touch (ACTION_UP): 0:(670.8743,1061.4084)
+    //[calendar_time:2019-06-05 12:56:40.748  system_uptime:46893168]
+    // Sending event #800
+    //[calendar_time:2019-06-05 12:56:40.749  system_uptime:46893168]
+    // Sending event #800
+:Sending Touch (ACTION_DOWN): 0:(380.0,107.0)
+:Sending Touch (ACTION_UP): 0:(398.50143,104.152954)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(744.0,1109.0)
+:Sending Touch (ACTION_UP): 0:(717.50024,1074.291)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(401.0,680.0)
+:Sending Touch (ACTION_UP): 0:(401.5444,677.6843)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(27.0,331.0)
+:Sending Touch (ACTION_UP): 0:(94.69437,318.91467)
+:Sending Touch (ACTION_DOWN): 0:(585.0,869.0)
+:Sending Touch (ACTION_UP): 0:(523.3091,883.0984)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.android.dialer/.DialtactsActivity } in package com.android.dialer
+:Sending Touch (ACTION_DOWN): 0:(196.0,957.0)
+:Sending Touch (ACTION_UP): 0:(195.45456,957.01544)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(637.0,990.0)
+:Sending Touch (ACTION_UP): 0:(660.1032,1019.15765)
+:Sending Touch (ACTION_DOWN): 0:(98.0,688.0)
+:Sending Touch (ACTION_UP): 0:(101.547386,677.26935)
+    //[calendar_time:2019-06-05 12:56:41.214  system_uptime:46893634]
+    // Sending event #900
+:Sending Touch (ACTION_DOWN): 0:(501.0,573.0)
+:Sending Touch (ACTION_UP): 0:(510.7592,631.61395)
+:Sending Touch (ACTION_DOWN): 0:(516.0,204.0)
+:Sending Touch (ACTION_UP): 0:(513.88086,208.99063)
+:Sending Touch (ACTION_DOWN): 0:(361.0,176.0)
+:Sending Touch (ACTION_UP): 0:(322.99475,140.00702)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.contacts/.activities.PeopleActivity } in package com.android.contacts
+:Sending Touch (ACTION_DOWN): 0:(208.0,31.0)
+:Sending Touch (ACTION_UP): 0:(208.71915,35.812374)
+:Sending Flip keyboardOpen=true
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(364.0,973.0)
+:Sending Touch (ACTION_UP): 0:(343.56235,964.5599)
+:Sending Touch (ACTION_DOWN): 0:(681.0,216.0)
+:Sending Touch (ACTION_UP): 0:(571.49854,240.61002)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(571.0,46.0)
+:Sending Touch (ACTION_UP): 0:(669.2907,131.85057)
+:Sending Touch (ACTION_DOWN): 0:(156.0,994.0)
+:Sending Touch (ACTION_UP): 0:(149.68849,990.272)
+:Sending Touch (ACTION_DOWN): 0:(186.0,108.0)
+:Sending Touch (ACTION_UP): 0:(3.7829266,32.593143)
+    //[calendar_time:2019-06-05 12:56:41.553  system_uptime:46893973]
+    // Sending event #1000
+:Sending Touch (ACTION_DOWN): 0:(595.0,861.0)
+:Sending Touch (ACTION_UP): 0:(597.9302,855.47406)
+:Sending Touch (ACTION_DOWN): 0:(678.0,1073.0)
+:Sending Touch (ACTION_UP): 0:(678.3889,1071.665)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(264.0,406.0)
+:Sending Touch (ACTION_UP): 0:(257.14627,404.18088)
+:Sending Touch (ACTION_DOWN): 0:(424.0,1125.0)
+:Sending Touch (ACTION_UP): 0:(414.90323,1102.0527)
+:Sending Touch (ACTION_DOWN): 0:(395.0,991.0)
+:Sending Touch (ACTION_UP): 0:(394.76178,980.192)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(213.0,708.0)
+:Sending Touch (ACTION_UP): 0:(321.71362,714.6533)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(753.0,48.0)
+:Sending Touch (ACTION_UP): 0:(700.8267,41.94769)
+    //[calendar_time:2019-06-05 12:56:41.910  system_uptime:46894329]
+    // Sending event #1100
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(413.0,474.0)
+:Sending Touch (ACTION_UP): 0:(417.04727,474.47705)
+:Sending Touch (ACTION_DOWN): 0:(244.0,228.0)
+:Sending Touch (ACTION_UP): 0:(200.71718,161.70274)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.settings/.deviceinfo.UsbModeChooserActivity } in package com.android.settings
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(116.0,6.0)
+:Sending Touch (ACTION_UP): 0:(99.00802,3.1867619)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.google.android.gm/.ConversationListActivityGmail } in package com.google.android.gm
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,4.0)
+    //[calendar_time:2019-06-05 12:56:42.292  system_uptime:46894712]
+    // Sending event #1200
+:Sending Touch (ACTION_DOWN): 0:(233.0,99.0)
+:Sending Touch (ACTION_UP): 0:(240.71947,106.01123)
+:Sending Touch (ACTION_DOWN): 0:(69.0,431.0)
+:Sending Touch (ACTION_UP): 0:(73.191345,423.93567)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(113.0,997.0)
+:Sending Touch (ACTION_UP): 0:(16.971941,1070.4905)
+:Sending Touch (ACTION_DOWN): 0:(202.0,218.0)
+:Sending Touch (ACTION_UP): 0:(223.05272,244.35495)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(220.0,406.0)
+:Sending Touch (ACTION_UP): 0:(214.31192,398.9834)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.settings/.DevelopmentSettings } in package com.android.settings
+:Sending Touch (ACTION_DOWN): 0:(123.0,789.0)
+:Sending Touch (ACTION_UP): 0:(130.82433,792.28546)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(716.0,698.0)
+:Sending Touch (ACTION_UP): 0:(716.25903,695.0012)
+:Sending Touch (ACTION_DOWN): 0:(731.0,186.0)
+:Sending Touch (ACTION_UP): 0:(721.50635,186.72554)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.settings/.DevelopmentSettings } in package com.android.settings
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(80.0,218.0)
+:Sending Touch (ACTION_UP): 0:(72.758865,198.12247)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(618.0,463.0)
+:Sending Touch (ACTION_UP): 0:(619.08167,536.1305)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+    //[calendar_time:2019-06-05 12:56:42.758  system_uptime:46895177]
+    // Sending event #1300
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(258.0,139.0)
+:Sending Touch (ACTION_UP): 0:(268.2846,144.99722)
+:Sending Touch (ACTION_DOWN): 0:(118.0,1004.0)
+:Sending Touch (ACTION_UP): 0:(132.62035,1003.7868)
+:Sending Touch (ACTION_DOWN): 0:(191.0,194.0)
+:Sending Touch (ACTION_UP): 0:(186.45197,198.99207)
+:Sending Touch (ACTION_DOWN): 0:(599.0,904.0)
+:Sending Touch (ACTION_UP): 0:(594.2085,905.4518)
+:Sending Touch (ACTION_DOWN): 0:(627.0,696.0)
+:Sending Touch (ACTION_UP): 0:(575.19775,774.1515)
+:Sending Touch (ACTION_DOWN): 0:(684.0,1016.0)
+:Sending Touch (ACTION_UP): 0:(680.42224,996.7489)
+:Sending Touch (ACTION_DOWN): 0:(734.0,243.0)
+:Sending Touch (ACTION_UP): 0:(738.0117,238.7748)
+:Sending Touch (ACTION_DOWN): 0:(28.0,173.0)
+:Sending Touch (ACTION_UP): 0:(0.0,207.10004)
+:Sending Touch (ACTION_DOWN): 0:(706.0,615.0)
+:Sending Touch (ACTION_UP): 0:(690.6851,613.9495)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(326.0,1181.0)
+:Sending Touch (ACTION_UP): 0:(259.73785,1184.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+    //[calendar_time:2019-06-05 12:56:43.222  system_uptime:46895642]
+    // Sending event #1400
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(208.0,378.0)
+:Sending Touch (ACTION_UP): 0:(252.02432,287.56357)
+:Sending Flip keyboardOpen=false
+:Sending Touch (ACTION_DOWN): 0:(647.0,529.0)
+:Sending Touch (ACTION_UP): 0:(643.8936,600.0673)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(608.0,678.0)
+:Sending Touch (ACTION_UP): 0:(607.643,676.25104)
+:Sending Touch (ACTION_DOWN): 0:(356.0,106.0)
+:Sending Touch (ACTION_UP): 0:(360.95132,103.471275)
+:Sending Touch (ACTION_DOWN): 0:(225.0,238.0)
+:Sending Touch (ACTION_UP): 0:(201.37592,352.4812)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+    //[calendar_time:2019-06-05 12:56:43.554  system_uptime:46895974]
+    // Sending event #1500
+:Sending Trackball (ACTION_MOVE): 0:(3.0,3.0)
+    // activityResuming(es.unizar.eina.notepadv1)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(602.0,305.0)
+:Sending Touch (ACTION_UP): 0:(491.52362,366.18115)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(442.0,1044.0)
+    //[calendar_time:2019-06-05 12:56:43.797  system_uptime:46896217]
+    // Sending event #1600
+:Sending Touch (ACTION_UP): 0:(380.6457,957.9638)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(259.0,87.0)
+:Sending Touch (ACTION_UP): 0:(243.86256,60.669624)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(353.0,506.0)
+:Sending Touch (ACTION_UP): 0:(356.21796,504.04074)
+:Sending Touch (ACTION_DOWN): 0:(689.0,1006.0)
+:Sending Touch (ACTION_UP): 0:(694.48785,1004.03107)
+:Sending Touch (ACTION_DOWN): 0:(524.0,40.0)
+:Sending Touch (ACTION_UP): 0:(517.8775,40.27255)
+:Sending Touch (ACTION_DOWN): 0:(313.0,503.0)
+:Sending Touch (ACTION_UP): 0:(357.24896,555.93066)
+:Sending Touch (ACTION_DOWN): 0:(542.0,396.0)
+:Sending Touch (ACTION_UP): 0:(545.7085,401.0654)
+:Sending Touch (ACTION_DOWN): 0:(462.0,813.0)
+:Sending Touch (ACTION_UP): 0:(470.21597,844.1406)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Trackball (ACTION_MOVE): 0:(3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(292.0,391.0)
+:Sending Touch (ACTION_UP): 0:(283.28387,370.45303)
+:Sending Touch (ACTION_DOWN): 0:(683.0,1169.0)
+:Sending Touch (ACTION_UP): 0:(667.3807,1173.4911)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-2.0)
+    //[calendar_time:2019-06-05 12:56:44.307  system_uptime:46896730]
+    // Sending event #1700
+:Sending Trackball (ACTION_MOVE): 0:(1.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(548.0,529.0)
+:Sending Touch (ACTION_UP): 0:(468.46017,401.95215)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,2.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(759.0,845.0)
+:Sending Touch (ACTION_UP): 0:(734.85626,821.4551)
+:Sending Touch (ACTION_DOWN): 0:(480.0,592.0)
+:Sending Touch (ACTION_UP): 0:(474.0948,594.79407)
+:Sending Touch (ACTION_DOWN): 0:(592.0,451.0)
+:Sending Touch (ACTION_UP): 0:(597.99426,439.13025)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(694.0,882.0)
+    //[calendar_time:2019-06-05 12:56:44.938  system_uptime:46897358]
+    // Sending event #1800
+:Sending Touch (ACTION_UP): 0:(728.57635,754.0025)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(0.0,617.0)
+:Sending Touch (ACTION_UP): 0:(0.38229495,605.5265)
+:Sending Touch (ACTION_DOWN): 0:(693.0,286.0)
+:Sending Touch (ACTION_UP): 0:(693.75134,295.44153)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Flip keyboardOpen=true
+:Sending Touch (ACTION_DOWN): 0:(681.0,497.0)
+:Sending Touch (ACTION_UP): 0:(696.18756,498.95425)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(37.0,3.0)
+:Sending Touch (ACTION_UP): 0:(39.431625,7.3288302)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(497.0,1005.0)
+:Sending Touch (ACTION_UP): 0:(483.53052,1003.95605)
+:Sending Touch (ACTION_DOWN): 0:(62.0,258.0)
+:Sending Touch (ACTION_UP): 0:(57.426723,231.42932)
+:Sending Touch (ACTION_DOWN): 0:(308.0,423.0)
+:Sending Touch (ACTION_UP): 0:(303.36166,437.4084)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+    //[calendar_time:2019-06-05 12:56:45.565  system_uptime:46897984]
+    // Sending event #1900
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(593.0,906.0)
+:Sending Touch (ACTION_UP): 0:(629.0212,869.9707)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(710.0,714.0)
+:Sending Touch (ACTION_UP): 0:(676.03217,709.8216)
+:Sending Touch (ACTION_DOWN): 0:(145.0,1126.0)
+:Sending Touch (ACTION_UP): 0:(147.30478,1139.9261)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=es.unizar.eina.notepadv1/es.unizar.eina.notepadv3.Notepadv3 } in package es.unizar.eina.notepadv1
+:Sending Touch (ACTION_DOWN): 0:(308.0,7.0)
+:Sending Touch (ACTION_UP): 0:(288.91434,8.74171)
+:Sending Touch (ACTION_DOWN): 0:(537.0,640.0)
+:Sending Touch (ACTION_UP): 0:(496.18747,695.0955)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(446.0,678.0)
+Events injected: 2000
+:Sending rotation degree=0, persist=false
+:Dropped: keys=0 pointers=1 trackballs=0 flips=0 rotations=0
+## Network stats: elapsed time=9420ms (0ms mobile, 0ms wifi, 9420ms not connected)
+// Monkey finished
