@@ -1,5 +1,6 @@
 package es.unizar.eina.notepadv3;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -138,6 +139,7 @@ public class NoteEdit extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     private void populateFields() {
         if (mRowId != null) {
             Cursor note = mDbHelper.fetchNote(mRowId);
@@ -198,6 +200,17 @@ public class NoteEdit extends AppCompatActivity {
             title = "Note";
         }
 
+        int counter = 0;
+        char[] titleArray = title.toCharArray();
+        for (int i = 0; i < titleArray.length; i++){
+            if(Character.isLetter(titleArray[i]) || Character.isDigit(titleArray[i])){
+                counter++;
+            }
+        }
+        if(counter == 0){
+            title = "Note";
+        }
+
         if (mRowId == null) {
             long id = mDbHelper.createNote(title, body, category, startDate.getTime(), endDate.getTime());
             if (id > 0) {
@@ -208,6 +221,7 @@ public class NoteEdit extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
@@ -221,10 +235,7 @@ public class NoteEdit extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 if (intent.getStringExtra("info").equals("startDate")) {
                     Date d = (Date) intent.getSerializableExtra("startDate");
-                    if(d.compareTo(currentDate) < 0) {
-                        error.setText("Start date can't be before the current date");
-                        startDate = currentDate;
-                    } else if (d.compareTo(endDate) > 0){
+                    if (d.compareTo(endDate) > 0){
                         error.setText("Start date can't be after the end date");
                         startDate = currentDate;
                     } else {

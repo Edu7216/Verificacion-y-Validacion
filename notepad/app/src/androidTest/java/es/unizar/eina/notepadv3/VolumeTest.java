@@ -19,9 +19,9 @@ public class VolumeTest {
     @Rule
     public ActivityTestRule<Notepadv3> activityRule = new ActivityTestRule<>(Notepadv3.class);
 
-    NotesDbAdapter mDbHelper_test;
+    private NotesDbAdapter mDbHelper_test;
     private long rowid;
-    ArrayList<Long> ids = new ArrayList<Long>();
+    private ArrayList<Long> ids = new ArrayList<Long>();
 
     @Before
     public void setUp() {

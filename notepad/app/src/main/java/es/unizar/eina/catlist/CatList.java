@@ -174,4 +174,5 @@ public class CatList extends AppCompatActivity {
         fillData();
     }
 
+    public CatDbAdapter getmDbHelper() { return this.mDbHelper; }
 }

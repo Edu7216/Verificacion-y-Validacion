@@ -20,8 +20,8 @@ import android.util.Log;
  */
 public class CatDbAdapter {
 
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_ROWID = "_id";
+    static final String KEY_TITLE = "title";
+    static final String KEY_ROWID = "_id";
 
     private static final String TAG = "CatDbAdapter";
     private DatabaseHelper mDbHelper;
@@ -90,6 +90,24 @@ public class CatDbAdapter {
         mDbHelper.close();
     }
 
+    /**
+     *
+     * @param title titulo
+     * @return true si es correctos, false en caso contrario
+     */
+    private boolean parametrosValidos(String title) {
+        int counter = 0;
+        if (title != null && title.length() > 0) {
+            char[] nameArray = title.toCharArray();
+            for (char aNameArray : nameArray) {
+                if (Character.isLetter(aNameArray) || Character.isDigit(aNameArray)) {
+                    counter++;
+                }
+            }
+        }
+
+        return title != null && !title.isEmpty() && counter != 0;
+    }
 
     /**
      * Create a new category using the title and body provided. If the category is
@@ -99,11 +117,16 @@ public class CatDbAdapter {
      * @param title the title of the category
      * @return rowId or -1 if failed
      */
-    public long createCategory(String title) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_TITLE, title);
+    long createCategory(String title) {
+        if (parametrosValidos(title)) {
+            ContentValues initialValues = new ContentValues();
+            initialValues.put(KEY_TITLE, title);
 
-        return mDb.insert(DATABASE_TABLE, null, initialValues);
+            return mDb.insert(DATABASE_TABLE, null, initialValues);
+        }
+        else {
+            return -1;
+        }
     }
 
     /**
@@ -112,8 +135,7 @@ public class CatDbAdapter {
      * @param rowId id of category to delete
      * @return true if deleted, false otherwise
      */
-    public boolean deleteCategory(long rowId) {
-
+    boolean deleteCategory(long rowId) {
         return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
     }
 
@@ -122,7 +144,7 @@ public class CatDbAdapter {
      *
      * @return Cursor over all categories
      */
-    public Cursor fetchAllCategories() {
+    Cursor fetchAllCategories() {
         return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TITLE},
                 null, null, null, null, KEY_TITLE);
 
@@ -136,18 +158,21 @@ public class CatDbAdapter {
      * @return Cursor positioned to matching category, if found
      * @throws SQLException if category could not be found/retrieved
      */
-    public Cursor fetchCategory(long rowId) throws SQLException {
-
-        Cursor mCursor =
-
-                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                                KEY_TITLE}, KEY_ROWID + "=" + rowId, null,
-                        null, null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
+    Cursor fetchCategory(long rowId) throws SQLException {
+        if (rowId <= 0) {
+            throw new SQLException();
         }
-        return mCursor;
+        else {
+            Cursor mCursor =
 
+                    mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+                                    KEY_TITLE}, KEY_ROWID + "=" + rowId, null,
+                            null, null, null, null);
+            if (mCursor != null) {
+                mCursor.moveToFirst();
+            }
+            return mCursor;
+        }
     }
 
     /**
@@ -159,10 +184,26 @@ public class CatDbAdapter {
      * @param title value to set category title to
      * @return true if the category was successfully updated, false otherwise
      */
-    public boolean updateCategory(long rowId, String title) {
-        ContentValues args = new ContentValues();
-        args.put(KEY_TITLE, title);
+    boolean updateCategory(long rowId, String title) {
+        if (parametrosValidos(title)) {
+            ContentValues args = new ContentValues();
+            args.put(KEY_TITLE, title);
 
-        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+            return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
+        }
+        else {
+            return false;
+        }
+    }
+
+    /**
+     * Operaciones para testing
+     *
+     */
+    int getCategoriesNumber() {
+        Cursor aux = this.fetchAllCategories();
+        int numCategorias = aux.getCount();
+        aux.close();
+        return numCategorias;
     }
 }

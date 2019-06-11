@@ -1,5 +1,6 @@
 package es.unizar.eina.notepadv3;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class NoteDatePicker extends AppCompatActivity {
     String info;
 
     TextView mEndDate;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,11 +69,9 @@ public class NoteDatePicker extends AppCompatActivity {
 
     }
     public String getCurrentDate(){
-        StringBuilder builder=new StringBuilder();;
-        builder.append((picker.getMonth() + 1)+"/");//month is 0 based
-        builder.append(picker.getDayOfMonth()+"/");
-        builder.append(picker.getYear());
-        return builder.toString();
+        return ((picker.getMonth() + 1) + "/") +//month is 0 based
+                picker.getDayOfMonth() + "/" +
+                picker.getYear();
     }
 
     public Date getDate(Date date){

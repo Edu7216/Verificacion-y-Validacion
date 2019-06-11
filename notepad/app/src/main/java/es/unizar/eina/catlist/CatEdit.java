@@ -1,5 +1,6 @@
 package es.unizar.eina.catlist;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -57,6 +58,7 @@ public class CatEdit extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("SetTextI18n")
     private void populateFields() {
         if (mRowId != null) {
             Cursor cat = mDbHelper.fetchCategory(mRowId);
@@ -96,6 +98,17 @@ public class CatEdit extends AppCompatActivity {
 
         if (name.isEmpty()) {
             name = "Category";
+        }
+
+        int counter = 0;
+        char[] nameArray = name.toCharArray();
+        for (int i = 0; i < nameArray.length; i++){
+            if(Character.isLetter(nameArray[i]) || Character.isDigit(nameArray[i])){
+                counter++;
+            }
+        }
+        if(counter == 0){
+            name = "Note";
         }
 
         if (mRowId == null) {
