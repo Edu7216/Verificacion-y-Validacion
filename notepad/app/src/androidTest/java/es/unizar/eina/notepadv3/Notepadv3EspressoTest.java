@@ -164,6 +164,24 @@ public class Notepadv3EspressoTest {
 
     }
 
+    private void crearNotaANDback(String title, String body) {
+        openActionBarOverflowOrOptionsMenu(mActivityRule.getActivity());
+        //onView(withText(R.string.menu_insert)).check(matches(notNullValue()));
+        onView(withText(R.string.menu_insert)).perform(click());
+
+        // Se asegura de que la actividad actual es NoteEdit
+        onView(withId(R.id.title)).check(matches(notNullValue()));
+
+        // En el título inserta "Espresso Note Title <i>"
+        onView(withId(R.id.title)).perform(typeText(title), closeSoftKeyboard());
+
+        // En el cuerpo inserta "Espresso Note Body <i>"
+        onView(withId(R.id.body)).perform(typeText(body), closeSoftKeyboard());
+
+        goBack();
+
+    }
+
     @After
     public void limpiarNotas() {
         listarCatReset();
@@ -173,7 +191,7 @@ public class Notepadv3EspressoTest {
         }
     }
 
-    //@After
+    @After
     public void limpiarCategorias() {
         boolean goBack = false;
 
@@ -184,7 +202,7 @@ public class Notepadv3EspressoTest {
             goBack = true;
         }
         for(String title : categorias) {
-            borrarCat(title);
+            borrarCat(title, false);
         }
 
         if(goBack) {
@@ -195,20 +213,23 @@ public class Notepadv3EspressoTest {
     private void borrarNota(String title) {
         onView(withText(title)).perform(longClick());
         onView(withText(R.string.menu_delete)).perform(click());
+        notas.remove(title);
     }
 
-    private void borrarCat(String title) {
+    private void borrarCat(String title, boolean from_note_list) {
         boolean goBack = false;
 
-        try {
-            onView(withId(R.id.cat_id)).check(matches(isDisplayed()));
-        } catch (Exception e) {
-            onView(withId(R.id.notepad_buttonCat)).perform(click());
-            goBack = true;
+        if(from_note_list) {
+            try {
+                onView(withId(R.id.cat_id)).check(matches(isDisplayed()));
+            } catch (Exception e) {
+                onView(withId(R.id.notepad_buttonCat)).perform(click());
+                goBack = true;
+            }
         }
-
         onView(withText(title)).perform(longClick());
         onView(withText(R.string.menu_cat_delete)).perform(click());
+        categorias.remove(title);
 
         if(goBack) {
             goBack();
@@ -336,9 +357,44 @@ public class Notepadv3EspressoTest {
         listarCaducadas();
         listarCaducadas();
         listarCategorias(categorias.get(1));
-        borrarCat(categorias.get(1));
+        borrarCat(categorias.get(1), true);
         listarCategorias(categorias.get(0));
 
+    }
+
+    @Test
+    public void camino2() {
+        crearNota(UUID.randomUUID().toString(), UUID.randomUUID().toString());
+        listarPorCategoria();
+        borrarNota(notas.get(0));
+        listarPorTitulo();
+        listarCatReset();
+
+    }
+
+    @Test
+    public void camino3() {
+        crearNota(UUID.randomUUID().toString(), UUID.randomUUID().toString());
+
+        listarPorCategoria();
+        crearNotaANDback(UUID.randomUUID().toString(), UUID.randomUUID().toString());
+        listarPorTitulo();
+
+        editarNota(notas.get(0), UUID.randomUUID().toString());
+        listarVigentes();
+        crearNotaANDback(UUID.randomUUID().toString(), UUID.randomUUID().toString());
+        listarCatReset();
+    }
+
+    @Test
+    public void camino4() {
+        crearNota(UUID.randomUUID().toString(), UUID.randomUUID().toString());
+
+        listarPorCategoria();
+        borrarNota(notas.get(0));
+
+        listarPorTitulo();
+        listarCatReset();
 
     }
 
