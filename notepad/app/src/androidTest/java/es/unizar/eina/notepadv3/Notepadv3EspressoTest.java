@@ -177,13 +177,41 @@ public class Notepadv3EspressoTest {
 
         // En el cuerpo inserta "Espresso Note Body <i>"
         onView(withId(R.id.body)).perform(typeText(body), closeSoftKeyboard());
+        notas.add(title);
 
         goBack();
 
     }
 
+
     @After
-    public void limpiarNotas() {
+    public void clear(){
+        boolean goBack = false;
+
+        try {
+            onView(withId(R.id.title)).check(matches(isDisplayed()));
+        } catch (Exception e) {
+            onView(withId(R.id.notepad_buttonCat)).perform(click());
+            goBack = true;
+        }
+        for(String title : categorias) {
+            borrarCat(title, false);
+        }
+
+        if(goBack) {
+            goBack();
+        }
+
+        listarCatReset();
+        listarTodas();
+        List<String> notas_n= new ArrayList<>(notas);
+
+        for(String title : notas_n) {
+            borrarNota(title);
+        }
+    }
+
+    /*public void limpiarNotas() {
         listarCatReset();
         listarTodas();
         for(String title : notas) {
@@ -208,7 +236,7 @@ public class Notepadv3EspressoTest {
         if(goBack) {
             goBack();
         }
-    }
+    }*/
 
     private void borrarNota(String title) {
         onView(withText(title)).perform(longClick());
