@@ -247,6 +247,20 @@ public class NotesDbAdapter {
         }
     }
 
+    Cursor fetchNote(String name) throws SQLException {
+        Cursor mCursor =
+
+                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+                                KEY_TITLE, KEY_BODY, KEY_CATEGORY, KEY_STARTDATE, KEY_ENDDATE},
+                        KEY_TITLE + "=\"" + name + "\"", null, null,
+                        null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+
+    }
+
     /**
      * Update the note using the details provided. The note to be updated is
      * specified using the rowId, and it is altered to use the title and body

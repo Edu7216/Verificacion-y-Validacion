@@ -88,7 +88,7 @@
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:entries="@array/date_references"
             android:prompt="@string/date_prompt" />
 

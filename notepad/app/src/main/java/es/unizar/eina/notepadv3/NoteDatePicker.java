@@ -80,4 +80,4 @@ public class NoteDatePicker extends AppCompatActivity {
         date.setYear(picker.getYear());
         return date;
     }
-}cd
+}
